@@ -1,0 +1,265 @@
+[08.06.2011 15:36:00] Counter: Setting counter to: 1307532960.4
+[08.06.2011 15:36:00] Base: Attaching module Cache to handlers: CheckInputParams
+[08.06.2011 15:36:00] Cache: Trying to load CheckInputParams output data from cache: csh.CheckInputParams.58d22a27750a2dea7376ee08408b4669.cache
+[08.06.2011 15:36:00] Cache: Got cached copy for handler CheckInputParams
+[08.06.2011 15:36:00] Counter: Execution took: 7.5msec
+[08.06.2011 15:36:00] TemplateOutput: Got message: Param found, but value "%test2%" is not equal to "test3"
+[08.06.2011 15:36:00] TemplateOutput: Output message: Param found, but value "test1" is not equal to "test3"
+[08.06.2011 15:36:47] Counter: Setting counter to: 1307533007.92
+[08.06.2011 15:36:47] Base: Attaching module Cache to handlers: CheckInputParams
+[08.06.2011 15:36:47] Cache: Trying to load CheckInputParams output data from cache: csh.CheckInputParams.58d22a27750a2dea7376ee08408b4669.cache
+[08.06.2011 15:36:47] Cache: Got cached copy for handler CheckInputParams
+[08.06.2011 15:36:47] Counter: Execution took: 7.0msec
+[08.06.2011 15:36:47] TemplateOutput: Got message: Param found, but value "%test2%" is not equal to "test3"
+[08.06.2011 15:36:47] TemplateOutput: Output message: Param found, but value "test1" is not equal to "test3"
+[08.06.2011 15:36:48] Counter: Setting counter to: 1307533008.62
+[08.06.2011 15:36:48] Base: Attaching module Cache to handlers: CheckInputParams
+[08.06.2011 15:36:48] Cache: Trying to load CheckInputParams output data from cache: csh.CheckInputParams.58d22a27750a2dea7376ee08408b4669.cache
+[08.06.2011 15:36:48] Cache: Got cached copy for handler CheckInputParams
+[08.06.2011 15:36:48] Counter: Execution took: 6.1msec
+[08.06.2011 15:36:48] TemplateOutput: Got message: Param found, but value "%test2%" is not equal to "test3"
+[08.06.2011 15:36:48] TemplateOutput: Output message: Param found, but value "test1" is not equal to "test3"
+[08.06.2011 15:36:48] Counter: Setting counter to: 1307533008.85
+[08.06.2011 15:36:48] Base: Attaching module Cache to handlers: CheckInputParams
+[08.06.2011 15:36:48] Cache: Trying to load CheckInputParams output data from cache: csh.CheckInputParams.58d22a27750a2dea7376ee08408b4669.cache
+[08.06.2011 15:36:48] Cache: Got cached copy for handler CheckInputParams
+[08.06.2011 15:36:48] Counter: Execution took: 6.2msec
+[08.06.2011 15:36:48] TemplateOutput: Got message: Param found, but value "%test2%" is not equal to "test3"
+[08.06.2011 15:36:48] TemplateOutput: Output message: Param found, but value "test1" is not equal to "test3"
+[08.06.2011 15:36:49] Counter: Setting counter to: 1307533009.08
+[08.06.2011 15:36:49] Base: Attaching module Cache to handlers: CheckInputParams
+[08.06.2011 15:36:49] Cache: Trying to load CheckInputParams output data from cache: csh.CheckInputParams.58d22a27750a2dea7376ee08408b4669.cache
+[08.06.2011 15:36:49] Cache: Got cached copy for handler CheckInputParams
+[08.06.2011 15:36:49] Counter: Execution took: 6.9msec
+[08.06.2011 15:36:49] TemplateOutput: Got message: Param found, but value "%test2%" is not equal to "test3"
+[08.06.2011 15:36:49] TemplateOutput: Output message: Param found, but value "test1" is not equal to "test3"
+[08.06.2011 15:37:22] Counter: Setting counter to: 1307533042.41
+[08.06.2011 15:37:22] Base: Attaching module Cache to handlers: CheckInputParams
+[08.06.2011 15:37:22] Cache: Trying to load CheckInputParams output data from cache: csh.CheckInputParams.58d22a27750a2dea7376ee08408b4669.cache
+[08.06.2011 15:37:22] Cache: Got cached copy for handler CheckInputParams
+[08.06.2011 15:37:22] Counter: Execution took: 7.6msec
+[08.06.2011 15:37:22] TemplateOutput: Got message: Param found, but value "%test2%" is not equal to "test3"
+[08.06.2011 15:37:22] TemplateOutput: Output message: Param found, but value "test1" is not equal to "test3"
+[08.06.2011 15:39:10] Counter: Setting counter to: 1307533150.84
+[08.06.2011 15:39:10] Base: Attaching module Cache to handlers: CheckInputParams
+[08.06.2011 15:39:10] Cache: Trying to load CheckInputParams output data from cache: csh.CheckInputParams.58d22a27750a2dea7376ee08408b4669.cache
+[08.06.2011 15:39:10] Cache: Got cached copy for handler CheckInputParams
+[08.06.2011 15:39:10] Counter: Execution took: 8.1msec
+[08.06.2011 15:39:10] TemplateOutput: Got message: Param found, but value "%test2%" is not equal to "test3"
+[08.06.2011 15:39:10] TemplateOutput: Output message: Param found, but value "test1" is not equal to "test3"
+[09.06.2011 10:55:09] Counter: Setting counter to: 1307602509.18
+[09.06.2011 10:55:09] Counter: Execution took: 8.0msec
+[09.06.2011 10:55:09] TemplateOutput: Got message: Undefined request found
+[09.06.2011 10:55:09] TemplateOutput: Output message: Undefined request found
+[09.06.2011 10:55:10] Counter: Setting counter to: 1307602510
+[09.06.2011 10:55:10] Counter: Execution took: 8.0msec
+[09.06.2011 10:55:10] TemplateOutput: Got message: Undefined request found
+[09.06.2011 10:55:10] TemplateOutput: Output message: Undefined request found
+[09.06.2011 10:55:10] Counter: Setting counter to: 1307602510.36
+[09.06.2011 10:55:10] Counter: Execution took: 11.6msec
+[09.06.2011 10:55:10] TemplateOutput: Got message: Undefined request found
+[09.06.2011 10:55:10] TemplateOutput: Output message: Undefined request found
+[09.06.2011 10:55:10] Counter: Setting counter to: 1307602510.56
+[09.06.2011 10:55:10] Counter: Execution took: 7.0msec
+[09.06.2011 10:55:10] TemplateOutput: Got message: Undefined request found
+[09.06.2011 10:55:10] TemplateOutput: Output message: Undefined request found
+[09.06.2011 10:55:10] Counter: Setting counter to: 1307602510.8
+[09.06.2011 10:55:10] Counter: Execution took: 7.1msec
+[09.06.2011 10:55:10] TemplateOutput: Got message: Undefined request found
+[09.06.2011 10:55:10] TemplateOutput: Output message: Undefined request found
+[09.06.2011 10:55:11] Counter: Setting counter to: 1307602511.25
+[09.06.2011 10:55:11] Counter: Execution took: 8.7msec
+[09.06.2011 10:55:11] TemplateOutput: Got message: Undefined request found
+[09.06.2011 10:55:11] TemplateOutput: Output message: Undefined request found
+[09.06.2011 10:55:11] Counter: Setting counter to: 1307602511.48
+[09.06.2011 10:55:11] Counter: Execution took: 6.2msec
+[09.06.2011 10:55:11] TemplateOutput: Got message: Undefined request found
+[09.06.2011 10:55:11] TemplateOutput: Output message: Undefined request found
+[09.06.2011 10:55:11] Counter: Setting counter to: 1307602511.73
+[09.06.2011 10:55:11] Counter: Execution took: 6.2msec
+[09.06.2011 10:55:11] TemplateOutput: Got message: Undefined request found
+[09.06.2011 10:55:11] TemplateOutput: Output message: Undefined request found
+[09.06.2011 11:00:51] Counter: Setting counter to: 1307602851.86
+[09.06.2011 11:00:51] Counter: Execution took: 10.0msec
+[09.06.2011 11:00:51] TemplateOutput: Got message: Undefined request found
+[09.06.2011 11:00:51] TemplateOutput: Output message: Undefined request found
+[09.06.2011 11:00:52] Counter: Setting counter to: 1307602852.51
+[09.06.2011 11:00:52] Counter: Execution took: 7.2msec
+[09.06.2011 11:00:52] TemplateOutput: Got message: Undefined request found
+[09.06.2011 11:00:52] TemplateOutput: Output message: Undefined request found
+[09.06.2011 11:57:33] Counter: Setting counter to: 1307606253.34
+[09.06.2011 11:57:33] Counter: Execution took: 8.7msec
+[09.06.2011 11:57:33] TemplateOutput: Got message: Undefined request found
+[09.06.2011 11:57:33] TemplateOutput: Output message: Undefined request found
+[09.06.2011 11:57:33] Counter: Setting counter to: 1307606253.73
+[09.06.2011 11:57:33] Counter: Execution took: 6.3msec
+[09.06.2011 11:57:33] TemplateOutput: Got message: Undefined request found
+[09.06.2011 11:57:33] TemplateOutput: Output message: Undefined request found
+[09.06.2011 11:57:41] Counter: Setting counter to: 1307606261.18
+[09.06.2011 11:57:43] Counter: Execution took: 2186.7msec
+[14.06.2011 10:18:31] WebCore: Attaching module Counter...
+[14.06.2011 10:18:32] Counter: Setting counter to: 1308032312.05
+[14.06.2011 10:18:32] WebCore: Attaching module TemplateOutput...
+[14.06.2011 10:18:32] WebCore: Started processing request
+[14.06.2011 10:18:32] WebCore: Checking path: stop-subscribe
+[14.06.2011 10:18:32] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[14.06.2011 10:18:32] WebCore: Checking path: test-path
+[14.06.2011 10:18:32] WebCore: Param "test" value (false) doesn't match required ('test'), path check failed
+[14.06.2011 10:18:32] WebCore: Checking path: charger-path
+[14.06.2011 10:18:32] WebCore: Param "test" value (false) doesn't match required (10), path check failed
+[14.06.2011 10:18:32] WebCore: Checking path: default-path
+[14.06.2011 10:18:32] WebCore: Resolved processing path: default-path
+[14.06.2011 10:18:32] WebCore: Executing path
+[14.06.2011 10:18:32] WebCore: Locating processor: SetRequest
+[14.06.2011 10:18:32] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[14.06.2011 10:18:32] WebCore: Executing processor: SetRequest
+[14.06.2011 10:18:32] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[14.06.2011 10:18:32] WebCore: Got SetRequestProcessor return action: ok
+[14.06.2011 10:18:32] WebCore: Gracefully shutting down - calling all outro methods
+[14.06.2011 10:18:32] Counter: Execution took: 439.6msec
+[14.06.2011 10:18:32] TemplateOutput: Got message: Undefined request found
+[14.06.2011 10:18:32] TemplateOutput: Output message: Undefined request found
+[15.06.2011 15:30:38] WebCore: Attaching module Counter...
+[15.06.2011 15:30:38] Counter: Setting counter to: 1308137438.15
+[15.06.2011 15:30:38] WebCore: Attaching module Cache...
+[15.06.2011 15:30:38] Base: Attaching module Cache to handlers: CheckInputParams, DoUselessThings
+[15.06.2011 15:30:38] WebCore: Attaching module DatasourceManager...
+[15.06.2011 15:30:38] WebCore: Attaching module TemplateOutput...
+[15.06.2011 15:30:38] WebCore: Started processing request
+[15.06.2011 15:30:38] WebCore: Checking path: stop-subscribe
+[15.06.2011 15:30:38] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[15.06.2011 15:30:38] WebCore: Checking path: test-path
+[15.06.2011 15:30:38] WebCore: Param "test" value (false) doesn't match required ('test'), path check failed
+[15.06.2011 15:30:38] WebCore: Checking path: charger-path
+[15.06.2011 15:30:38] WebCore: Param "test" value (false) doesn't match required (10), path check failed
+[15.06.2011 15:30:38] WebCore: Checking path: default-path
+[15.06.2011 15:30:38] WebCore: Resolved processing path: default-path
+[15.06.2011 15:30:38] WebCore: Executing path
+[15.06.2011 15:30:38] WebCore: Locating processor: SetRequest
+[15.06.2011 15:30:38] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[15.06.2011 15:30:38] WebCore: Executing processor: SetRequest
+[15.06.2011 15:30:38] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[15.06.2011 15:30:38] WebCore: Got SetRequestProcessor return action: ok
+[15.06.2011 15:30:38] WebCore: Gracefully shutting down - calling all outro methods
+[15.06.2011 15:30:38] Counter: Execution took: 130.6msec
+[15.06.2011 15:30:38] DatasourceManager: Shutting down connections
+[15.06.2011 15:30:38] TemplateOutput: Got message: Undefined request found
+[15.06.2011 15:30:38] TemplateOutput: Output message: Undefined request found
+[15.06.2011 15:36:45] WebCore: Attaching module Counter...
+[15.06.2011 15:36:45] Counter: Setting counter to: 1308137805.22
+[15.06.2011 15:36:45] WebCore: Attaching module Cache...
+[15.06.2011 15:36:45] Base: Attaching module Cache to handlers: CheckInputParams, DoUselessThings
+[15.06.2011 15:36:45] WebCore: Attaching module DatasourceManager...
+[15.06.2011 15:36:45] WebCore: Attaching module TemplateOutput...
+[15.06.2011 15:36:45] WebCore: Started processing request
+[15.06.2011 15:36:45] WebCore: Checking path: stop-subscribe
+[15.06.2011 15:36:45] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[15.06.2011 15:36:45] WebCore: Checking path: test-path
+[15.06.2011 15:36:45] WebCore: Param "test" value (false) doesn't match required ('test'), path check failed
+[15.06.2011 15:36:45] WebCore: Checking path: charger-path
+[15.06.2011 15:36:45] WebCore: Param "test" value (false) doesn't match required (10), path check failed
+[15.06.2011 15:36:45] WebCore: Checking path: default-path
+[15.06.2011 15:36:45] WebCore: Resolved processing path: default-path
+[15.06.2011 15:36:45] WebCore: Executing path
+[15.06.2011 15:36:45] WebCore: Locating processor: SetRequest
+[15.06.2011 15:36:45] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[15.06.2011 15:36:45] WebCore: Executing processor: SetRequest
+[15.06.2011 15:36:45] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[15.06.2011 15:36:45] WebCore: Got SetRequestProcessor return action: ok
+[15.06.2011 15:36:45] WebCore: Gracefully shutting down - calling all outro methods
+[15.06.2011 15:36:45] Counter: Execution took: 52.9msec
+[15.06.2011 15:36:45] DatasourceManager: Shutting down connections
+[15.06.2011 15:36:45] TemplateOutput: Got message: Undefined request found
+[15.06.2011 15:36:45] TemplateOutput: Output message: Undefined request found
+[15.06.2011 15:36:45] WebCore: Attaching module Counter...
+[15.06.2011 15:36:45] Counter: Setting counter to: 1308137805.76
+[15.06.2011 15:36:45] WebCore: Attaching module Cache...
+[15.06.2011 15:36:45] Base: Attaching module Cache to handlers: CheckInputParams, DoUselessThings
+[15.06.2011 15:36:45] WebCore: Attaching module DatasourceManager...
+[15.06.2011 15:36:45] WebCore: Attaching module TemplateOutput...
+[15.06.2011 15:36:45] WebCore: Started processing request
+[15.06.2011 15:36:45] WebCore: Checking path: stop-subscribe
+[15.06.2011 15:36:45] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[15.06.2011 15:36:45] WebCore: Checking path: test-path
+[15.06.2011 15:36:45] WebCore: Param "test" value (false) doesn't match required ('test'), path check failed
+[15.06.2011 15:36:45] WebCore: Checking path: charger-path
+[15.06.2011 15:36:45] WebCore: Param "test" value (false) doesn't match required (10), path check failed
+[15.06.2011 15:36:45] WebCore: Checking path: default-path
+[15.06.2011 15:36:45] WebCore: Resolved processing path: default-path
+[15.06.2011 15:36:45] WebCore: Executing path
+[15.06.2011 15:36:45] WebCore: Locating processor: SetRequest
+[15.06.2011 15:36:45] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[15.06.2011 15:36:45] WebCore: Executing processor: SetRequest
+[15.06.2011 15:36:45] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[15.06.2011 15:36:45] WebCore: Got SetRequestProcessor return action: ok
+[15.06.2011 15:36:45] WebCore: Gracefully shutting down - calling all outro methods
+[15.06.2011 15:36:45] Counter: Execution took: 13.2msec
+[15.06.2011 15:36:45] DatasourceManager: Shutting down connections
+[15.06.2011 15:36:45] TemplateOutput: Got message: Undefined request found
+[15.06.2011 15:36:45] TemplateOutput: Output message: Undefined request found
+[15.06.2011 15:36:46] WebCore: Attaching module Counter...
+[15.06.2011 15:36:46] Counter: Setting counter to: 1308137806.09
+[15.06.2011 15:36:46] WebCore: Attaching module Cache...
+[15.06.2011 15:36:46] Base: Attaching module Cache to handlers: CheckInputParams, DoUselessThings
+[15.06.2011 15:36:46] WebCore: Attaching module DatasourceManager...
+[15.06.2011 15:36:46] WebCore: Attaching module TemplateOutput...
+[15.06.2011 15:36:46] WebCore: Started processing request
+[15.06.2011 15:36:46] WebCore: Checking path: stop-subscribe
+[15.06.2011 15:36:46] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[15.06.2011 15:36:46] WebCore: Checking path: test-path
+[15.06.2011 15:36:46] WebCore: Param "test" value (false) doesn't match required ('test'), path check failed
+[15.06.2011 15:36:46] WebCore: Checking path: charger-path
+[15.06.2011 15:36:46] WebCore: Param "test" value (false) doesn't match required (10), path check failed
+[15.06.2011 15:36:46] WebCore: Checking path: default-path
+[15.06.2011 15:36:46] WebCore: Resolved processing path: default-path
+[15.06.2011 15:36:46] WebCore: Executing path
+[15.06.2011 15:36:46] WebCore: Locating processor: SetRequest
+[15.06.2011 15:36:46] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[15.06.2011 15:36:46] WebCore: Executing processor: SetRequest
+[15.06.2011 15:36:46] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[15.06.2011 15:36:46] WebCore: Got SetRequestProcessor return action: ok
+[15.06.2011 15:36:46] WebCore: Gracefully shutting down - calling all outro methods
+[15.06.2011 15:36:46] Counter: Execution took: 25.5msec
+[15.06.2011 15:36:46] DatasourceManager: Shutting down connections
+[15.06.2011 15:36:46] TemplateOutput: Got message: Undefined request found
+[15.06.2011 15:36:46] TemplateOutput: Output message: Undefined request found
