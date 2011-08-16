@@ -92,7 +92,7 @@
     	    if (isset($data['input'])) foreach ($data['input'] as $param) $params[$param] = $core->getRequest()->get($param);
     	    
     	    $key = $this->getKey($handler,$params);
-    	    
+            
     	    if (isset($data['output'])) {
     		
                 if (!isset($result[1])) $result[1]=array();
@@ -105,6 +105,7 @@
             
 
     	    $core->getLogger()->log('Saving '.$handler.' output data to cache using '.$this->config['handler']);
+            $this->storage->setExpireTime($this->config['activeHandlers'][$handler]);
             $this->storage->set($handler.'.'.$key,$result);
     	    
     	    return $this;	    

@@ -7,10 +7,9 @@
 	    setConfig(new Config('web.php'))->
         setRouter(new UrlRouter())->
         setDebugLevel(true)->
-	    attach('Counter')->
 	    attach('Cache')->
-        //attach('DatasourceManager')->
+        attach('HeaderOutput')->
 	    attach('TemplateOutput')->
-        //attach('HeaderOutput')->
+	    attach('Counter')->        
 	    process()->
 	    shutdown();

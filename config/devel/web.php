@@ -8,7 +8,8 @@ return array(
                     'data'=>array(
             			'input'=>array('pageNum'),
             			'output'=>array('page'),
-                    )
+                    ),
+                    'not-exist'=>'default-path'
                 )
             ),
             'condition' => array(
@@ -16,6 +17,9 @@ return array(
                 'match'=> array(
                     1=>'pageNum',
                 )
+            ),
+            'set' => array(
+                'template'=>'test.tpl',
             )
         ),        
 
@@ -31,7 +35,10 @@ return array(
             		'request'=> array (
             		    
             		)
-        	    )
+        	    ),
+                'set'=> array(
+                    'template'=>'error.tpl',
+                )
     	),
     ),
     'modules'=>array(
@@ -39,18 +46,21 @@ return array(
     	    'cacheDir'=>'/usr/local/www/spring/cache/',
             'handler'=>'FileCacheHandler',
     	    'activeHandlers'=>array(
-                    'GetPage'=>100,
+                    'GetPage'=>10,
     	    )
     	)
     ),
     'settings'=>array(
-        'logengine'=>'ScreenLogger',
-        'logdir' => '/usr/local/www/spring/',
+        'logengine'=>'FileLogger',
+        'logdir' => '/usr/local/www/spring/logs/',
+        'templatedir'=>'/usr/local/www/spring/templates/',
         'logs'=> array(
    	        'default'=>'default.log',
             'MysqlDatasource'=>'sql.log',
+            'Counter'=>'slow.log',
+            'PgsqlDatasource'=>'sql.log',
     	),
-    	'debug'=>false,
+    	'debug'=>true,
         'headers'=>array(
             'Content-Type'=> 'text/html; charset=UTF-8',
         )

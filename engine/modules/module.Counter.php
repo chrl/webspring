@@ -15,19 +15,18 @@
 	/**
 	 * CounterModule::intro()
 	 * 
-	 * @param mixed $core
+	 * @param CoreInterface $core
 	 * @return
 	 */
 	public function intro(CoreInterface $core) {
 	    $this->counter = microtime(true);
-	    $core->getLogger()->log('Setting counter to: '.$this->counter);
 	    return $this;
 	}
 	
 	/**
 	 * CounterModule::outro()
 	 * 
-	 * @param mixed $core
+	 * @param CoreInterface $core
 	 * @return
 	 */
 	public function outro(CoreInterface $core) {

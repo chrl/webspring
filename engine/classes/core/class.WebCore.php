@@ -51,6 +51,17 @@
     	    $this->getLogger()->log('Resolved processing path: '.$path);
     	    
     	    $path = $this->getConfig()->get('execution.'.$path);
+            
+                if (isset($path['set'])) {
+                    $this->getLogger()->log('Filling path params');
+                    
+                    foreach ($path['set'] as $key=>$value)
+                    {
+                        $this->getRequest()->set($key,$value);
+                        $this->getLogger()->log('Setting param "'.$key.'" to '.$value);
+                    }    
+                }
+            
     	    
     	    $this->getLogger()->log('Executing path');
     	    
@@ -132,23 +143,29 @@
     	    
     	    if (!$skip) {
         	        
-    		$this->getLogger()->log('Executing processor: '.$handler);
+        		$this->getLogger()->log('Executing processor: '.$handler);
+        
+        		$handle = $handler.'Processor';	    
+        		$processor = new $handle();
+        		$result = $processor->run($data,$this);
+        		
+        		$this->getLogger()->log('Got execution result: '.var_export($result,true));
     
-    		$handle = $handler.'Processor';	    
-    		$processor = new $handle();
-    		$result = $processor->run($data,$this);
-    		
-    		$this->getLogger()->log('Got execution result: '.var_export($result,true));
-    
-    		if(isset($this->attachedModules[$handler])) foreach($this->attachedModules[$handler] as $moduleName=>$module)
-    		{
-    		    
-    		    if(method_exists($module,'postexecute')) {
-    			$module->postexecute($handler,$data,$result,$this);			
-    		    }
-    		}
-    	    }
-    	    
+        		if (count($result)>1) {
+        		    $this->getLogger()->log('Batch-setting data: '.var_export($result[1],true));
+        		    $this->getRequest()->batchSet($result[1]);
+        		}              	    
+                
+        		if(isset($this->attachedModules[$handler])) foreach($this->attachedModules[$handler] as $moduleName=>$module)
+        		{
+        		    if(method_exists($module,'postexecute')) {
+        			$module->postexecute($handler,$data,$result,$this);			
+        		    }
+        		}
+    	    } elseif (count($result)>1) {
+    		    $this->getLogger()->log('Batch-setting data: '.var_export($result[1],true));
+    		    $this->getRequest()->batchSet($result[1]);
+       		}              	    
     	    
     	    return $result;
     	}
@@ -176,10 +193,6 @@
     			    : array()
     		);
     		
-    		if (count($action)>1) {
-    		    $this->getRequest()->batchSet($action[1]);
-    		}
-    
     		$action = $action[0];
     		
     		$this->getLogger()->log('Got '.$processor.'Processor return action: '.$action);
@@ -189,9 +202,20 @@
     		}
     		
     	    } else {
-    		$jumpPath = $this->getConfig()->get('execution.'.$path);
-    		$this->getLogger()->log('Jumping to path: '.$path);
-    		$this->executePath($jumpPath['tree']);
+        		$jumpPath = $this->getConfig()->get('execution.'.$path);
+        		$this->getLogger()->log('Jumping to path: '.$path);
+                
+                if (isset($jumpPath['set'])) {
+                    $this->getLogger()->log('Filling path params');
+                    
+                    foreach ($jumpPath['set'] as $key=>$value)
+                    {
+                        $this->getRequest()->set($key,$value);
+                        $this->getLogger()->log('Setting param "'.$key.'" to '.$value);
+                    }    
+                }
+
+        		$this->executePath($jumpPath['tree']);
     	    }
     	    
                 return $this;

@@ -3,9 +3,9 @@
     /**
      * BaseModule
      * 
-     * @package   
-     * @author 
-     * @copyright admin
+     * @package Webspring
+     * @author charlie@chrl.ru
+     * @copyright charlie@chrl.ru
      * @version 2011
      * @access public
      */
