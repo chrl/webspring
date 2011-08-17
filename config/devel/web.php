@@ -9,7 +9,7 @@ return array(
             			'input'=>array('pageNum'),
             			'output'=>array('page'),
                     ),
-                    'not-exist'=>'default-path'
+                    'not-exist'=>'default-path',
                 )
             ),
             'condition' => array(
@@ -21,8 +21,47 @@ return array(
             'set' => array(
                 'template'=>'test.tpl',
             )
-        ),        
-
+        ),
+        'main-page'=>array(
+            'tree'=> array(
+        		'SetRequest' => array(
+        		    'data'=> array(
+        			     'message'=>'Switching to pages-view',
+  		            ),
+                    'ok'=>'pages-view',
+        		)            
+            ),
+            'condition'=> array(
+                'uri'=>'/^\/$/',
+            ),
+            'set'=>array(
+                'pageNum'=>2,
+            ),
+        ),
+        'pages-list'=>array(
+            'tree'=> array(
+                'GetAllPages'=>array(
+                    'output'=>array(
+                        'pages',
+                    ),
+                    'input'=>array(
+                    
+                    ),
+                    'ok'=>array(
+                        'IteratePages'=>array(
+                            'input'=>array('pages'),
+                            'output'=>array('page'),
+                        ),
+                    ),
+                ),
+            ),
+            'condition'=> array(
+                'uri'=>'/^\/pages\/$/',
+            ),
+            'set'=>array(
+                'template'=>'test.tpl',
+            ),        
+        ),       
     	'default-path' => array(
     	    'tree' => array (
             		'SetRequest' => array(
@@ -43,17 +82,18 @@ return array(
     ),
     'modules'=>array(
     	'Cache'=>array(
-    	    'cacheDir'=>'/usr/local/www/spring/cache/',
+    	    'cacheDir'=>'../cache/',
             'handler'=>'FileCacheHandler',
     	    'activeHandlers'=>array(
                     'GetPage'=>10,
+                    'GetAllPages'=>10,
     	    )
     	)
     ),
     'settings'=>array(
         'logengine'=>'FileLogger',
-        'logdir' => '/usr/local/www/spring/logs/',
-        'templatedir'=>'/usr/local/www/spring/templates/',
+        'templatedir'=>'../templates/',        
+        'logdir' => '../logs/',
         'logs'=> array(
    	        'default'=>'default.log',
             'MysqlDatasource'=>'sql.log',

@@ -110,13 +110,14 @@
             $sql = "select * from \"".$entity->getTable()."\" where ";
 
             $properties = array();
-
-            foreach ($params as $key=>$item)
-            {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.pg_escape_string($item,$this->connection).'"');
-            }
-            
-            $sql.= implode(' AND ', $properties);
+            if (count($params)>0) {
+                foreach ($params as $key=>$item)
+                {
+                    $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.pg_escape_string($item,$this->connection).'"');
+                }
+                
+                $sql.= implode(' AND ', $properties);
+            } else $sql.= '1=1';
             $result = $this->query($sql);
             
             if ($result && (count($result)==1)) return array_shift($result);

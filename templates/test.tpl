@@ -10,6 +10,8 @@ body { font-family: Tahoma, Verdana, Arial, sans-serif; }
 <tr>
 <td align="center" valign="middle">
 %page.text%
+<br />
+<a href="/pages/">Articles List</a>
 </td>
 </tr>
 </table>
