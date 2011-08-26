@@ -1,0 +1,511 @@
+[08.06.2011 15:36:00] WebCore: Attaching module Counter...
+[08.06.2011 15:36:00] WebCore: Attaching module Cache...
+[08.06.2011 15:36:00] WebCore: Attaching module TemplateOutput...
+[08.06.2011 15:36:00] WebCore: Started processing request
+[08.06.2011 15:36:00] WebCore: Checking path: stop-subscribe
+[08.06.2011 15:36:00] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[08.06.2011 15:36:00] WebCore: Checking path: test-path
+[08.06.2011 15:36:00] WebCore: Param "test" value ('test') is equal to required ('test'), continuing...
+[08.06.2011 15:36:00] WebCore: Param "test2" value ('test1') exists, continuing...
+[08.06.2011 15:36:00] WebCore: Resolved processing path: test-path
+[08.06.2011 15:36:00] WebCore: Executing path
+[08.06.2011 15:36:00] WebCore: Locating processor: CheckInputParams
+[08.06.2011 15:36:00] WebCore: Got CheckInputParamsProcessor data: array (
+  'input' => 
+  array (
+    0 => 'test2',
+  ),
+  'output' => 
+  array (
+  ),
+)
+[08.06.2011 15:36:00] WebCore: Got CheckInputParamsProcessor return action: fail
+[08.06.2011 15:36:00] WebCore: Gracefully shutting down - calling all outro methods
+[08.06.2011 15:36:47] WebCore: Attaching module Counter...
+[08.06.2011 15:36:47] WebCore: Attaching module Cache...
+[08.06.2011 15:36:47] WebCore: Attaching module TemplateOutput...
+[08.06.2011 15:36:47] WebCore: Started processing request
+[08.06.2011 15:36:47] WebCore: Checking path: stop-subscribe
+[08.06.2011 15:36:47] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[08.06.2011 15:36:47] WebCore: Checking path: test-path
+[08.06.2011 15:36:47] WebCore: Param "test" value ('test') is equal to required ('test'), continuing...
+[08.06.2011 15:36:47] WebCore: Param "test2" value ('test1') exists, continuing...
+[08.06.2011 15:36:47] WebCore: Resolved processing path: test-path
+[08.06.2011 15:36:47] WebCore: Executing path
+[08.06.2011 15:36:47] WebCore: Locating processor: CheckInputParams
+[08.06.2011 15:36:47] WebCore: Got CheckInputParamsProcessor data: array (
+  'input' => 
+  array (
+    0 => 'test2',
+  ),
+  'output' => 
+  array (
+  ),
+)
+[08.06.2011 15:36:47] WebCore: Got CheckInputParamsProcessor return action: fail
+[08.06.2011 15:36:47] WebCore: Gracefully shutting down - calling all outro methods
+[08.06.2011 15:36:48] WebCore: Attaching module Counter...
+[08.06.2011 15:36:48] WebCore: Attaching module Cache...
+[08.06.2011 15:36:48] WebCore: Attaching module TemplateOutput...
+[08.06.2011 15:36:48] WebCore: Started processing request
+[08.06.2011 15:36:48] WebCore: Checking path: stop-subscribe
+[08.06.2011 15:36:48] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[08.06.2011 15:36:48] WebCore: Checking path: test-path
+[08.06.2011 15:36:48] WebCore: Param "test" value ('test') is equal to required ('test'), continuing...
+[08.06.2011 15:36:48] WebCore: Param "test2" value ('test1') exists, continuing...
+[08.06.2011 15:36:48] WebCore: Resolved processing path: test-path
+[08.06.2011 15:36:48] WebCore: Executing path
+[08.06.2011 15:36:48] WebCore: Locating processor: CheckInputParams
+[08.06.2011 15:36:48] WebCore: Got CheckInputParamsProcessor data: array (
+  'input' => 
+  array (
+    0 => 'test2',
+  ),
+  'output' => 
+  array (
+  ),
+)
+[08.06.2011 15:36:48] WebCore: Got CheckInputParamsProcessor return action: fail
+[08.06.2011 15:36:48] WebCore: Gracefully shutting down - calling all outro methods
+[08.06.2011 15:36:48] WebCore: Attaching module Counter...
+[08.06.2011 15:36:48] WebCore: Attaching module Cache...
+[08.06.2011 15:36:48] WebCore: Attaching module TemplateOutput...
+[08.06.2011 15:36:48] WebCore: Started processing request
+[08.06.2011 15:36:48] WebCore: Checking path: stop-subscribe
+[08.06.2011 15:36:48] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[08.06.2011 15:36:48] WebCore: Checking path: test-path
+[08.06.2011 15:36:48] WebCore: Param "test" value ('test') is equal to required ('test'), continuing...
+[08.06.2011 15:36:48] WebCore: Param "test2" value ('test1') exists, continuing...
+[08.06.2011 15:36:48] WebCore: Resolved processing path: test-path
+[08.06.2011 15:36:48] WebCore: Executing path
+[08.06.2011 15:36:48] WebCore: Locating processor: CheckInputParams
+[08.06.2011 15:36:48] WebCore: Got CheckInputParamsProcessor data: array (
+  'input' => 
+  array (
+    0 => 'test2',
+  ),
+  'output' => 
+  array (
+  ),
+)
+[08.06.2011 15:36:48] WebCore: Got CheckInputParamsProcessor return action: fail
+[08.06.2011 15:36:48] WebCore: Gracefully shutting down - calling all outro methods
+[08.06.2011 15:36:49] WebCore: Attaching module Counter...
+[08.06.2011 15:36:49] WebCore: Attaching module Cache...
+[08.06.2011 15:36:49] WebCore: Attaching module TemplateOutput...
+[08.06.2011 15:36:49] WebCore: Started processing request
+[08.06.2011 15:36:49] WebCore: Checking path: stop-subscribe
+[08.06.2011 15:36:49] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[08.06.2011 15:36:49] WebCore: Checking path: test-path
+[08.06.2011 15:36:49] WebCore: Param "test" value ('test') is equal to required ('test'), continuing...
+[08.06.2011 15:36:49] WebCore: Param "test2" value ('test1') exists, continuing...
+[08.06.2011 15:36:49] WebCore: Resolved processing path: test-path
+[08.06.2011 15:36:49] WebCore: Executing path
+[08.06.2011 15:36:49] WebCore: Locating processor: CheckInputParams
+[08.06.2011 15:36:49] WebCore: Got CheckInputParamsProcessor data: array (
+  'input' => 
+  array (
+    0 => 'test2',
+  ),
+  'output' => 
+  array (
+  ),
+)
+[08.06.2011 15:36:49] WebCore: Got CheckInputParamsProcessor return action: fail
+[08.06.2011 15:36:49] WebCore: Gracefully shutting down - calling all outro methods
+[08.06.2011 15:37:22] WebCore: Attaching module Counter...
+[08.06.2011 15:37:22] WebCore: Attaching module Cache...
+[08.06.2011 15:37:22] WebCore: Attaching module TemplateOutput...
+[08.06.2011 15:37:22] WebCore: Started processing request
+[08.06.2011 15:37:22] WebCore: Checking path: stop-subscribe
+[08.06.2011 15:37:22] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[08.06.2011 15:37:22] WebCore: Checking path: test-path
+[08.06.2011 15:37:22] WebCore: Param "test" value ('test') is equal to required ('test'), continuing...
+[08.06.2011 15:37:22] WebCore: Param "test2" value ('test1') exists, continuing...
+[08.06.2011 15:37:22] WebCore: Resolved processing path: test-path
+[08.06.2011 15:37:22] WebCore: Executing path
+[08.06.2011 15:37:22] WebCore: Locating processor: CheckInputParams
+[08.06.2011 15:37:22] WebCore: Got CheckInputParamsProcessor data: array (
+  'input' => 
+  array (
+    0 => 'test2',
+  ),
+  'output' => 
+  array (
+  ),
+)
+[08.06.2011 15:37:22] WebCore: Got CheckInputParamsProcessor return action: fail
+[08.06.2011 15:37:22] WebCore: Gracefully shutting down - calling all outro methods
+[08.06.2011 15:39:10] WebCore: Attaching module Counter...
+[08.06.2011 15:39:10] WebCore: Attaching module Cache...
+[08.06.2011 15:39:10] WebCore: Attaching module TemplateOutput...
+[08.06.2011 15:39:10] WebCore: Started processing request
+[08.06.2011 15:39:10] WebCore: Checking path: stop-subscribe
+[08.06.2011 15:39:10] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[08.06.2011 15:39:10] WebCore: Checking path: test-path
+[08.06.2011 15:39:10] WebCore: Param "test" value ('test') is equal to required ('test'), continuing...
+[08.06.2011 15:39:10] WebCore: Param "test2" value ('test1') exists, continuing...
+[08.06.2011 15:39:10] WebCore: Resolved processing path: test-path
+[08.06.2011 15:39:10] WebCore: Executing path
+[08.06.2011 15:39:10] WebCore: Locating processor: CheckInputParams
+[08.06.2011 15:39:10] WebCore: Got CheckInputParamsProcessor data: array (
+  'input' => 
+  array (
+    0 => 'test2',
+  ),
+  'output' => 
+  array (
+  ),
+)
+[08.06.2011 15:39:10] WebCore: Got CheckInputParamsProcessor return action: fail
+[08.06.2011 15:39:10] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 10:55:09] WebCore: Attaching module Counter...
+[09.06.2011 10:55:09] WebCore: Attaching module TemplateOutput...
+[09.06.2011 10:55:09] WebCore: Started processing request
+[09.06.2011 10:55:09] WebCore: Checking path: stop-subscribe
+[09.06.2011 10:55:09] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 10:55:09] WebCore: Checking path: test-path
+[09.06.2011 10:55:09] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 10:55:09] WebCore: Checking path: charger-path
+[09.06.2011 10:55:09] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 10:55:09] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 10:55:09] WebCore: Checking path: default-path
+[09.06.2011 10:55:09] WebCore: Resolved processing path: default-path
+[09.06.2011 10:55:09] WebCore: Executing path
+[09.06.2011 10:55:09] WebCore: Locating processor: SetRequest
+[09.06.2011 10:55:09] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 10:55:09] WebCore: Executing processor: SetRequest
+[09.06.2011 10:55:09] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 10:55:09] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 10:55:09] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 10:55:10] WebCore: Attaching module Counter...
+[09.06.2011 10:55:10] WebCore: Attaching module TemplateOutput...
+[09.06.2011 10:55:10] WebCore: Started processing request
+[09.06.2011 10:55:10] WebCore: Checking path: stop-subscribe
+[09.06.2011 10:55:10] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: test-path
+[09.06.2011 10:55:10] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: charger-path
+[09.06.2011 10:55:10] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 10:55:10] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: default-path
+[09.06.2011 10:55:10] WebCore: Resolved processing path: default-path
+[09.06.2011 10:55:10] WebCore: Executing path
+[09.06.2011 10:55:10] WebCore: Locating processor: SetRequest
+[09.06.2011 10:55:10] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 10:55:10] WebCore: Executing processor: SetRequest
+[09.06.2011 10:55:10] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 10:55:10] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 10:55:10] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 10:55:10] WebCore: Attaching module Counter...
+[09.06.2011 10:55:10] WebCore: Attaching module TemplateOutput...
+[09.06.2011 10:55:10] WebCore: Started processing request
+[09.06.2011 10:55:10] WebCore: Checking path: stop-subscribe
+[09.06.2011 10:55:10] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: test-path
+[09.06.2011 10:55:10] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: charger-path
+[09.06.2011 10:55:10] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 10:55:10] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: default-path
+[09.06.2011 10:55:10] WebCore: Resolved processing path: default-path
+[09.06.2011 10:55:10] WebCore: Executing path
+[09.06.2011 10:55:10] WebCore: Locating processor: SetRequest
+[09.06.2011 10:55:10] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 10:55:10] WebCore: Executing processor: SetRequest
+[09.06.2011 10:55:10] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 10:55:10] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 10:55:10] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 10:55:10] WebCore: Attaching module Counter...
+[09.06.2011 10:55:10] WebCore: Attaching module TemplateOutput...
+[09.06.2011 10:55:10] WebCore: Started processing request
+[09.06.2011 10:55:10] WebCore: Checking path: stop-subscribe
+[09.06.2011 10:55:10] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: test-path
+[09.06.2011 10:55:10] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: charger-path
+[09.06.2011 10:55:10] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 10:55:10] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: default-path
+[09.06.2011 10:55:10] WebCore: Resolved processing path: default-path
+[09.06.2011 10:55:10] WebCore: Executing path
+[09.06.2011 10:55:10] WebCore: Locating processor: SetRequest
+[09.06.2011 10:55:10] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 10:55:10] WebCore: Executing processor: SetRequest
+[09.06.2011 10:55:10] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 10:55:10] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 10:55:10] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 10:55:10] WebCore: Attaching module Counter...
+[09.06.2011 10:55:10] WebCore: Attaching module TemplateOutput...
+[09.06.2011 10:55:10] WebCore: Started processing request
+[09.06.2011 10:55:10] WebCore: Checking path: stop-subscribe
+[09.06.2011 10:55:10] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: test-path
+[09.06.2011 10:55:10] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: charger-path
+[09.06.2011 10:55:10] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 10:55:10] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 10:55:10] WebCore: Checking path: default-path
+[09.06.2011 10:55:10] WebCore: Resolved processing path: default-path
+[09.06.2011 10:55:10] WebCore: Executing path
+[09.06.2011 10:55:10] WebCore: Locating processor: SetRequest
+[09.06.2011 10:55:10] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 10:55:10] WebCore: Executing processor: SetRequest
+[09.06.2011 10:55:10] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 10:55:10] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 10:55:10] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 10:55:11] WebCore: Attaching module Counter...
+[09.06.2011 10:55:11] WebCore: Attaching module TemplateOutput...
+[09.06.2011 10:55:11] WebCore: Started processing request
+[09.06.2011 10:55:11] WebCore: Checking path: stop-subscribe
+[09.06.2011 10:55:11] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: test-path
+[09.06.2011 10:55:11] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: charger-path
+[09.06.2011 10:55:11] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 10:55:11] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: default-path
+[09.06.2011 10:55:11] WebCore: Resolved processing path: default-path
+[09.06.2011 10:55:11] WebCore: Executing path
+[09.06.2011 10:55:11] WebCore: Locating processor: SetRequest
+[09.06.2011 10:55:11] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 10:55:11] WebCore: Executing processor: SetRequest
+[09.06.2011 10:55:11] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 10:55:11] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 10:55:11] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 10:55:11] WebCore: Attaching module Counter...
+[09.06.2011 10:55:11] WebCore: Attaching module TemplateOutput...
+[09.06.2011 10:55:11] WebCore: Started processing request
+[09.06.2011 10:55:11] WebCore: Checking path: stop-subscribe
+[09.06.2011 10:55:11] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: test-path
+[09.06.2011 10:55:11] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: charger-path
+[09.06.2011 10:55:11] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 10:55:11] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: default-path
+[09.06.2011 10:55:11] WebCore: Resolved processing path: default-path
+[09.06.2011 10:55:11] WebCore: Executing path
+[09.06.2011 10:55:11] WebCore: Locating processor: SetRequest
+[09.06.2011 10:55:11] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 10:55:11] WebCore: Executing processor: SetRequest
+[09.06.2011 10:55:11] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 10:55:11] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 10:55:11] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 10:55:11] WebCore: Attaching module Counter...
+[09.06.2011 10:55:11] WebCore: Attaching module TemplateOutput...
+[09.06.2011 10:55:11] WebCore: Started processing request
+[09.06.2011 10:55:11] WebCore: Checking path: stop-subscribe
+[09.06.2011 10:55:11] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: test-path
+[09.06.2011 10:55:11] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: charger-path
+[09.06.2011 10:55:11] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 10:55:11] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 10:55:11] WebCore: Checking path: default-path
+[09.06.2011 10:55:11] WebCore: Resolved processing path: default-path
+[09.06.2011 10:55:11] WebCore: Executing path
+[09.06.2011 10:55:11] WebCore: Locating processor: SetRequest
+[09.06.2011 10:55:11] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 10:55:11] WebCore: Executing processor: SetRequest
+[09.06.2011 10:55:11] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 10:55:11] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 10:55:11] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 11:00:51] WebCore: Attaching module Counter...
+[09.06.2011 11:00:51] WebCore: Attaching module TemplateOutput...
+[09.06.2011 11:00:51] WebCore: Started processing request
+[09.06.2011 11:00:51] WebCore: Checking path: stop-subscribe
+[09.06.2011 11:00:51] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 11:00:51] WebCore: Checking path: test-path
+[09.06.2011 11:00:51] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 11:00:51] WebCore: Checking path: charger-path
+[09.06.2011 11:00:51] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 11:00:51] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 11:00:51] WebCore: Checking path: default-path
+[09.06.2011 11:00:51] WebCore: Resolved processing path: default-path
+[09.06.2011 11:00:51] WebCore: Executing path
+[09.06.2011 11:00:51] WebCore: Locating processor: SetRequest
+[09.06.2011 11:00:51] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 11:00:51] WebCore: Executing processor: SetRequest
+[09.06.2011 11:00:51] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 11:00:51] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 11:00:51] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 11:00:52] WebCore: Attaching module Counter...
+[09.06.2011 11:00:52] WebCore: Attaching module TemplateOutput...
+[09.06.2011 11:00:52] WebCore: Started processing request
+[09.06.2011 11:00:52] WebCore: Checking path: stop-subscribe
+[09.06.2011 11:00:52] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 11:00:52] WebCore: Checking path: test-path
+[09.06.2011 11:00:52] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 11:00:52] WebCore: Checking path: charger-path
+[09.06.2011 11:00:52] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 11:00:52] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 11:00:52] WebCore: Checking path: default-path
+[09.06.2011 11:00:52] WebCore: Resolved processing path: default-path
+[09.06.2011 11:00:52] WebCore: Executing path
+[09.06.2011 11:00:52] WebCore: Locating processor: SetRequest
+[09.06.2011 11:00:52] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 11:00:52] WebCore: Executing processor: SetRequest
+[09.06.2011 11:00:52] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 11:00:52] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 11:00:52] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 11:57:33] WebCore: Attaching module Counter...
+[09.06.2011 11:57:33] WebCore: Attaching module TemplateOutput...
+[09.06.2011 11:57:33] WebCore: Started processing request
+[09.06.2011 11:57:33] WebCore: Checking path: stop-subscribe
+[09.06.2011 11:57:33] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 11:57:33] WebCore: Checking path: test-path
+[09.06.2011 11:57:33] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 11:57:33] WebCore: Checking path: charger-path
+[09.06.2011 11:57:33] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 11:57:33] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 11:57:33] WebCore: Checking path: default-path
+[09.06.2011 11:57:33] WebCore: Resolved processing path: default-path
+[09.06.2011 11:57:33] WebCore: Executing path
+[09.06.2011 11:57:33] WebCore: Locating processor: SetRequest
+[09.06.2011 11:57:33] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 11:57:33] WebCore: Executing processor: SetRequest
+[09.06.2011 11:57:33] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 11:57:33] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 11:57:33] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 11:57:33] WebCore: Attaching module Counter...
+[09.06.2011 11:57:33] WebCore: Attaching module TemplateOutput...
+[09.06.2011 11:57:33] WebCore: Started processing request
+[09.06.2011 11:57:33] WebCore: Checking path: stop-subscribe
+[09.06.2011 11:57:33] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 11:57:33] WebCore: Checking path: test-path
+[09.06.2011 11:57:33] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 11:57:33] WebCore: Checking path: charger-path
+[09.06.2011 11:57:33] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 11:57:33] WebCore: Param "iterate" value (false) doesn't match required (false), path check failed
+[09.06.2011 11:57:33] WebCore: Checking path: default-path
+[09.06.2011 11:57:33] WebCore: Resolved processing path: default-path
+[09.06.2011 11:57:33] WebCore: Executing path
+[09.06.2011 11:57:33] WebCore: Locating processor: SetRequest
+[09.06.2011 11:57:33] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Undefined request found',
+)
+[09.06.2011 11:57:33] WebCore: Executing processor: SetRequest
+[09.06.2011 11:57:33] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Undefined request found',
+  ),
+)
+[09.06.2011 11:57:33] WebCore: Got SetRequestProcessor return action: ok
+[09.06.2011 11:57:33] WebCore: Gracefully shutting down - calling all outro methods
+[09.06.2011 11:57:41] WebCore: Attaching module Counter...
+[09.06.2011 11:57:41] WebCore: Attaching module TemplateOutput...
+[09.06.2011 11:57:41] WebCore: Started processing request
+[09.06.2011 11:57:41] WebCore: Checking path: stop-subscribe
+[09.06.2011 11:57:41] WebCore: Param "p" value (false) doesn't match required ('/\\d+/'), path check failed
+[09.06.2011 11:57:41] WebCore: Checking path: test-path
+[09.06.2011 11:57:41] WebCore: Param "test" value ('10') doesn't match required ('test'), path check failed
+[09.06.2011 11:57:41] WebCore: Checking path: charger-path
+[09.06.2011 11:57:41] WebCore: Param "test" value ('10') is equal to required (10), continuing...
+[09.06.2011 11:57:41] WebCore: Param "iterate" value ('100') exists, continuing...
+[09.06.2011 11:57:41] WebCore: Resolved processing path: charger-path
+[09.06.2011 11:57:41] WebCore: Executing path
+[09.06.2011 11:57:41] WebCore: Locating processor: DoUselessThings
+[09.06.2011 11:57:41] WebCore: Got DoUselessThingsProcessor data: array (
+  'iterate' => 30,
+)
+[09.06.2011 11:57:41] WebCore: Executing processor: DoUselessThings
+[09.06.2011 11:57:43] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'string' => 'apekiquxnmgltzvwojcsrdhfyb',
+  ),
+)
+[09.06.2011 11:57:43] WebCore: Got DoUselessThingsProcessor return action: ok
+[09.06.2011 11:57:43] WebCore: Gracefully shutting down - calling all outro methods
