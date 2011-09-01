@@ -59,7 +59,7 @@
                 $config = 'default.php';
             }
 
-            $startDir = dirname(__FILE__).'/../../../config/devel/';
+            $startDir = getcwd().'/../config/devel/';
 
             if (file_exists($startDir.$config))
             {

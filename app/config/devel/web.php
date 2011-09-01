@@ -91,7 +91,7 @@ return array(
     	)
     ),
     'settings'=>array(
-        'logengine'=>'FileLogger',
+        'logengine'=>'ScreenLogger',
         'templatedir'=>'../templates/',        
         'logdir' => '../logs/',
         'logs'=> array(

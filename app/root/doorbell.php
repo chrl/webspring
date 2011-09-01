@@ -1,6 +1,5 @@
 <?php
     
-
     require('./autoload.php');
     
     $core = new WebCore();

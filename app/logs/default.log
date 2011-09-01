@@ -1,0 +1,50 @@
+[01.09.2011 17:36:11] WebCore: Attaching module Cache...
+[01.09.2011 17:36:11] Cache: Attaching module Cache to handlers: GetPage, GetAllPages
+[01.09.2011 17:36:11] WebCore: Attaching module HeaderOutput...
+[01.09.2011 17:36:11] WebCore: Attaching module TemplateOutput...
+[01.09.2011 17:36:11] WebCore: Attaching module Counter...
+[01.09.2011 17:36:11] WebCore: Started processing request
+[01.09.2011 17:36:11] UrlRouter: Got uri: /
+[01.09.2011 17:36:11] UrlRouter: Checking path: pages-view
+[01.09.2011 17:36:11] UrlRouter: pages-view mismatched by pattern (/^\/pages\/(\d+)(:?\/)*$/) with uri /
+[01.09.2011 17:36:11] UrlRouter: Checking path: main-page
+[01.09.2011 17:36:11] UrlRouter: Match found in path main-page
+[01.09.2011 17:36:11] WebCore: Resolved processing path: main-page
+[01.09.2011 17:36:11] WebCore: Filling path params
+[01.09.2011 17:36:11] WebCore: Setting param "pageNum" to 2
+[01.09.2011 17:36:11] WebCore: Executing path
+[01.09.2011 17:36:11] WebCore: Locating processor: SetRequest
+[01.09.2011 17:36:11] WebCore: Got SetRequestProcessor data: array (
+  'message' => 'Switching to pages-view',
+)
+[01.09.2011 17:36:11] WebCore: Executing processor: SetRequest
+[01.09.2011 17:36:11] WebCore: Got execution result: array (
+  0 => 'ok',
+  1 => 
+  array (
+    'message' => 'Switching to pages-view',
+  ),
+)
+[01.09.2011 17:36:11] WebCore: Batch-setting data: array (
+  'message' => 'Switching to pages-view',
+)
+[01.09.2011 17:36:11] WebCore: Got SetRequestProcessor return action: ok
+[01.09.2011 17:36:11] WebCore: Jumping to path: pages-view
+[01.09.2011 17:36:11] WebCore: Filling path params
+[01.09.2011 17:36:11] WebCore: Setting param "template" to test.tpl
+[01.09.2011 17:36:11] WebCore: Locating processor: GetPage
+[01.09.2011 17:36:11] WebCore: Got GetPageProcessor data: array (
+  'input' => 
+  array (
+    0 => 'pageNum',
+  ),
+  'output' => 
+  array (
+    0 => 'page',
+  ),
+)
+[01.09.2011 17:36:11] Cache: Trying to load GetPage output data from cache using FileCacheHandler
+[01.09.2011 17:36:11] FileCacheHandler: Checking file csh.GetPage.4e386b4f47321b0de64e0ef8501dfee3.cache
+[01.09.2011 17:36:11] FileCacheHandler: Got expire time: 10
+[01.09.2011 17:36:11] Cache: Got no cached copy of processor GetPage
+[01.09.2011 17:36:11] WebCore: Executing processor: GetPage

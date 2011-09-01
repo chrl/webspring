@@ -3,7 +3,9 @@
     function __autoload($className)
     {
         
-        $startDir = getcwd().'/../engine/';
+        $startDir = getcwd().'/../../webspring/';
+        $startCurrentDir = getcwd().'/../';
+        
 	
     	$route = array(
                 
@@ -58,6 +60,12 @@
         }
         
     	if (false !== stripos($className, 'processor')) {
+
+                if (file_exists($startCurrentDir.'processors/'.$additionalPath.'processor.'.str_ireplace('processor','',$className).'.php')) {
+    		
+                    require_once $startCurrentDir.'processors/'.$additionalPath.'processor.'.str_ireplace('processor','',$className).'.php';
+                    return true;
+                }
     	    
                 if (file_exists($startDir.'processors/'.$additionalPath.'processor.'.str_ireplace('processor','',$className).'.php')) {
     		
@@ -67,7 +75,13 @@
             }
             
     	if (false !== stripos($className, 'entity')) {
-    	    
+    	   
+                if (file_exists($startCurrentDir.'entity/'.$additionalPath.'entity.'.str_ireplace('entity','',$className).'.php')) {
+    		
+                    require_once $startCurrentDir.'entity/'.$additionalPath.'entity.'.str_ireplace('entity','',$className).'.php';
+                    return true;
+                }
+                    	    
                 if (file_exists($startDir.'entity/'.$additionalPath.'entity.'.str_ireplace('entity','',$className).'.php')) {
     		
                     require_once $startDir.'entity/'.$additionalPath.'entity.'.str_ireplace('entity','',$className).'.php';
