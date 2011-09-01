@@ -49,6 +49,8 @@
     	    $path = $this->router->resolveProcessingPath();
                 
     	    $this->getLogger()->log('Resolved processing path: '.$path);
+            
+            $this->getRequest()->set('path',$path);
     	    
     	    $path = $this->getConfig()->get('execution.'.$path);
             

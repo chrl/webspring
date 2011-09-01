@@ -6,7 +6,7 @@
     $core-> 
 		setConfig(new Config('web.php'))->
 		setRouter(new UrlRouter())->
-		setDebugLevel(true)->
+		setDebugLevel(false)->
 		attach('Cache')->
 		attach('HeaderOutput')->
 		attach('TemplateOutput')->
