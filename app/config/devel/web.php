@@ -1,6 +1,19 @@
 <?php
 
 return array(
+    'include'=>array(
+        'main-menu' => array(
+            'tree' => array(
+                
+            ),
+            'set' => array(
+                'menu_items'=>array(
+                    'pages'=>'Pages List',
+                    ''=>'Main Page'
+                )
+            )
+        ),
+    ),
     'execution' => array(
         'pages-view' => array(
             'tree' => array(

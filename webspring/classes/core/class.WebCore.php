@@ -70,6 +70,29 @@
             return $this;
     	}
         
+        public function executeIncludePath($path)
+        {
+   	        $this->getLogger()->log('Executing include path "'.$path.'"');
+            $path = $this->getConfig()->get('include.'.$path);
+            if ($path) {
+                
+                if (isset($path['set'])) {
+                    $this->getLogger()->log('Filling path params');
+                    
+                    foreach ($path['set'] as $key=>$value)
+                    {
+                        $this->getRequest()->set($key,$value);
+                        $this->getLogger()->log('Setting param "'.$key.'" to '.$value);
+                    }    
+                }
+                
+        	    $this->executePath($path['tree']);                
+
+                
+            } else $this->getLogger()->log('Include path not found in config');
+            return $this;
+        }
+        
         public function setDebugLevel($level)
         {
             $this->debugLevel = $level;
@@ -118,15 +141,17 @@
     	 */
     	protected function executeProcessor($handler,$data)
     	{
-    	    $this->getLogger()->log('Locating processor: '.$handler);
+    	    if (!$handler) return array('no-processor');
+            
+            $this->getLogger()->log('Locating processor: '.$handler);
     	    $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));
     	    $actions = array();
     	    
     	    if(isset($this->attachedModules[$handler])) foreach($this->attachedModules[$handler] as $moduleName=>$module)
     	    {
-    		if(method_exists($module,'preexecute')) {
-    		    $actions[$moduleName] = $module->preexecute($handler,$data,$this);
-    		}
+        		if(method_exists($module,'preexecute')) {
+        		    $actions[$moduleName] = $module->preexecute($handler,$data,$this);
+        		}
     	    }
     	    
     	    $skip = false;
@@ -134,11 +159,11 @@
     	    
     	    foreach ($actions as $moduleActions) {
     
-    		if (array_key_exists('skip',$moduleActions)) {
-    		    $result = $moduleActions['skip'];
-    		    $skip = true;
-    		    break;
-    		}
+        		if (array_key_exists('skip',$moduleActions)) {
+        		    $result = $moduleActions['skip'];
+        		    $skip = true;
+        		    break;
+        		}
     	    }
     	    
     	    if (!$skip) {
@@ -159,7 +184,7 @@
         		if(isset($this->attachedModules[$handler])) foreach($this->attachedModules[$handler] as $moduleName=>$module)
         		{
         		    if(method_exists($module,'postexecute')) {
-        			$module->postexecute($handler,$data,$result,$this);			
+        			     $module->postexecute($handler,$data,$result,$this);			
         		    }
         		}
     	    } elseif (count($result)>1) {

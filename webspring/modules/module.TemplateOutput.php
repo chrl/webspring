@@ -45,6 +45,28 @@
             
     		$this->template = file_get_contents($this->core->getConfig()->get('settings.templatedir') . $this->core->getRequest()->get('template'));
             
+            // parsing all template includes
+            
+        	preg_match_all('/\%i\:(.+)\%/iU', $this->template, $matches);
+            
+            while (count($matches[0])>0) {
+
+        		for ($i = 0; $i < count($matches[0]); ++$i)
+                {
+                    $this->core->executeIncludePath($matches[1][$i]);
+                    $this->template = str_replace($matches[0][$i],
+                         '',
+                         $this->template);
+                }
+            	preg_match_all('/\%i\:(.+)\%/iU', $this->template, $matches);
+                
+            }
+            
+            
+            
+            
+            
+            
             // running n times - to parse second level templates
             
         	preg_match_all('/\%p\:(.+)\%/iU', $this->template, $matches);
@@ -57,7 +79,7 @@
                          $this->preloadtemplate($matches[1][$i]),
                          $this->template);
                 }
-            	preg_match_all('/<!--\{([p]\:.+)\}-->/iU', $this->template, $matches);
+            	preg_match_all('/\%p\:(.+)\%/iU', $this->template, $matches);
                 
             }
             

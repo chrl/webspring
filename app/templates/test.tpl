@@ -1,3 +1,4 @@
+%i:main-menu%
 <html>
 <head>
 <title>%page.name%</title>
@@ -11,7 +12,7 @@ body { font-family: Tahoma, Verdana, Arial, sans-serif; }
 <td align="center" valign="middle">
 %page.text%
 <br />
-<a href="/pages/">Articles List</a>
+%main_menu_text%
 </td>
 </tr>
 </table>
