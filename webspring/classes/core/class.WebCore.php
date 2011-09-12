@@ -24,6 +24,13 @@
     	
     	protected $logger = null;
         protected $debugLevel = null;
+        
+        public $isAjax = null;
+        
+        public function __construct()
+        {
+            $this->isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
+        }
     	
     	/**
     	 * WebCore::process()

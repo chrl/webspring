@@ -14,6 +14,8 @@
     {
         private $settings = array();
         
+        private $extends = array();
+        
         protected static $globalConfig = array();
 
 
@@ -53,20 +55,44 @@
          * @param bool $config
          * @return
          */
+         
         public function __construct($config = false)
+        {
+                $this->settings = $this->readConfig($config);
+                return $this;
+        }
+        
+        public function readConfig($config=false)
         {
             if ($config == false) {
                 $config = 'default.php';
             }
+            
+            if (in_array($config,$this->extends)) return array();
+            
+            $this->extends[]=$config;
 
             $startDir = getcwd().'/../config/devel/';
 
             if (file_exists($startDir.$config))
             {
-                $this->settings = require_once($startDir.$config);
-                return $this;
+                $settings = require_once($startDir.$config);
+                
+                while (!empty($settings['links'])) {
+                    foreach ($settings['links'] as $key=>$item) {
+                        $set2 = $this->readConfig($item);
+                        unset($settings['links'][$key]);
+                        $settings = array_merge($settings,$set2);
+                    }
+                }
+                
+                return $settings;
+                
+            } else {
+                throw new Exception('Config file not exist: '.$startDir.$config);
             }
             return array();
+            
         }
 	
         /**

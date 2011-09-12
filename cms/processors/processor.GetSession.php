@@ -21,7 +21,7 @@
     	public function run($data, CoreInterface $core)
     	{
            if (isset($_SESSION['user'])) {
-                return array('ok');
+                return array('ok',array('user'=>$_SESSION['user']));
            } else {
                 return array('fail');
            }

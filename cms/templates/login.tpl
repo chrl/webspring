@@ -1,6 +1,10 @@
 <html>
     <head>
-        <title>%config.sitename%</title>
+        <title>%c:sitename%</title>
+        <script src="/public/js/jquery.js" type="text/javascript"></script>
+        <script src="/public/js/jquery.json.js" type="text/javascript"></script>
+        <script src="/public/js/catcher.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/public/style.css" />        
         <style>
             body { font-family: Tahoma, Verdana, Arial, sans-serif; }
         </style>
@@ -10,7 +14,7 @@
             <tr>
                 <td align="center">
                     <table id="loginform">
-                        <tr><td align="center" style="color: rgb(0, 153, 255); font-size: 22px;"><img src="/public/logo2.png"/><br /><br />
+                        <tr><td align="center" style="color: rgb(0, 153, 255); font-size: 22px;">WebSpring Admin<br /><br />
                             <table cellpadding="5" style="width:100px;">
                                 <tr>
                                     <td><img src="/public/user.jpg" /></td>
