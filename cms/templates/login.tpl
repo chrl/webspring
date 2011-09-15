@@ -18,7 +18,7 @@
                             <table cellpadding="5" style="width:100px;">
                                 <tr>
                                     <td><img src="/public/user.jpg" /></td>
-                                    <td><input type="text" id="login_mail" style="color: rgb(0, 153, 255); font-size: 22px; width: 200px;" /></td>
+                                    <td><input type="text" id="login_login" style="color: rgb(0, 153, 255); font-size: 22px; width: 200px;" /></td>
         
                                     <td><img src="/public/pass.jpg" /></td>
                                     <td><input id="login_pass" type="password" style="color: rgb(0, 153, 255); font-size: 22px; width: 200px;" /></td>

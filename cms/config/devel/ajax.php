@@ -7,89 +7,31 @@ return array(
     ),
 
     'execution' => array(
-        'admin'=>array(
-            'tree'=>array(
-                'GetSession'=>array(
-                    'ok'=>array(
-                    ),
-                    'fail'=>array(
-                        'SetRequest'=>array(
-                            'data' => array(
-                                'template'=>'login.tpl',
+        'catch'=>array(
+            'tree'=> array(
+                'GetCatchData'=>array(
+                    'ok' => array(
+                        'CatchData'=>array(
+                            'ok'=> array(
+                                
                             ),
-                        ),
-                    
+                            'fail'=> array(
+                            
+                            )
+                        )
                     ),
                 ),
             ),
             'condition'=>array(
-                'uri'=>'/^\/admin\/(.*)$/',
-                'match'=>array(
-                    1=>'section',
-                ),
-            
-            ),
-        ),
-        'pages-view' => array(
-            'tree' => array(
-                'GetPage' => array(
-                    'data'=>array(
-            			'input'=>array('pageNum'),
-            			'output'=>array('page'),
-                    ),
-                    'not-exist'=>'default-path',
-                )
-            ),
-            'condition' => array(
-                'uri' => '/^\/pages\/(\d+)(:?\/)*$/',
-                'match'=> array(
-                    1=>'pageNum',
-                )
-            ),
-            'set' => array(
-                'template'=>'test.tpl',
-            )
-        ),
-        'main-page'=>array(
-            'tree'=> array(
-        		'SetRequest' => array(
-        		    'data'=> array(
-        			     'message'=>'Switching to pages-view',
-  		            ),
-                    'ok'=>'pages-view',
-        		)            
-            ),
-            'condition'=> array(
-                'uri'=>'/^\/$/',
-            ),
-            'set'=>array(
-                'pageNum'=>2,
-            ),
-        ),
-        'pages-list'=>array(
-            'tree'=> array(
-                'GetAllPages'=>array(
-                    'output'=>array(
-                        'pages',
-                    ),
-                    'input'=>array(
-                    
-                    ),
-                    'ok'=>array(
-                        'IteratePages'=>array(
-                            'input'=>array('pages'),
-                            'output'=>array('page'),
-                        ),
-                    ),
+                'request'=>array(
+                    'method' => 'catch',
+                    'entity' => '/.+form$/',
+                    'data'=>false,
                 ),
             ),
-            'condition'=> array(
-                'uri'=>'/^\/pages\/$/',
-            ),
-            'set'=>array(
-                'template'=>'test.tpl',
-            ),        
-        ),       
+        
+        ),
+    
     	'default-path' => array(
     	    'tree' => array (
             		'SetRequest' => array(

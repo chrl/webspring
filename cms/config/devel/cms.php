@@ -11,6 +11,11 @@ return array(
             'tree'=>array(
                 'GetSession'=>array(
                     'ok'=>array(
+                        'SetRequest'=>array(
+                            'data' => array(
+                                'template'=>'admin.tpl',
+                            ),
+                        ),
                     ),
                     'fail'=>array(
                         'SetRequest'=>array(
@@ -30,6 +35,33 @@ return array(
             
             ),
         ),
+        'logout'=>array(
+            'tree'=>array(
+                'GetSession'=>array(
+                    'ok'=>array(
+                        'ClearSession'=>array(
+                            'ok'=>array(
+                                'Redirect'=>array(
+                                    'data'=> array(
+                                        'path'=>'/admin/',
+                                    )
+                                )
+                            )
+                        ),
+                    ),
+                    'fail'=>array(
+                        'Redirect'=>array(
+                            'data'=> array(
+                                'path'=>'/admin/',
+                            )
+                        )
+                    ),
+                ),
+            ),
+            'condition'=>array(
+                'uri'=>'/^\/logout\/$/',
+            ),
+        ),        
         'pages-view' => array(
             'tree' => array(
                 'GetPage' => array(

@@ -113,7 +113,7 @@
             if (count($params)>0) {
                 foreach ($params as $key=>$item)
                 {
-                    $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.pg_escape_string($item,$this->connection).'"');
+                    $properties[] = $key.' = '.(is_int($item) ? $item : '\''.pg_escape_string($this->connection,$item).'\'');
                 }
                 
                 $sql.= implode(' AND ', $properties);
