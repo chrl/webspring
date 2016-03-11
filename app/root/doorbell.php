@@ -1,5 +1,5 @@
 <?php
-    
+    ini_set('display_errors', 'on');
     require('./autoload.php');
     
     $core = new WebCore();

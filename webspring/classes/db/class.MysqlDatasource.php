@@ -119,7 +119,7 @@
             $sql.= implode(' AND ', $properties);
             $result = $this->query($sql);
             
-            if (count($result)==1) return array_shift($result);
+            if ($result && (count($result)==1)) return array_shift($result);
             
             return $result;   
 

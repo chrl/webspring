@@ -153,7 +153,7 @@
     	    if (!$handler) return array('no-processor');
             
             $this->getLogger()->log('Locating processor: '.$handler);
-    	    $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));
+            $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));
     	    $actions = array();
     	    
     	    if(isset($this->attachedModules[$handler])) foreach($this->attachedModules[$handler] as $moduleName=>$module)
@@ -177,6 +177,15 @@
     	    
     	    if (!$skip) {
         	        
+                        if (isset($data['input'])) {
+                            $this->getLogger()->log('Filling input params for processor: '.$handler);
+                            foreach ($data['input'] as $k=>$v) {
+                                $data[$k] = $this->getRequest()->get($k);
+                            }
+                            //unset($data['input']);
+                            $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));                                            
+                        }
+                        
         		$this->getLogger()->log('Executing processor: '.$handler);
         
         		$handle = $handler.'Processor';	    
@@ -218,24 +227,30 @@
     	protected function executePath($path)
     	{
     	    if (is_array($path)) {
-    		list($processor) = array_keys($path);
-    
-    		$action = $this->executeProcessor(
-    			$processor,
-    			isset($path[$processor]['data'])
-    			    ? $path[$processor]['data']
-    			    : array()
-    		);
+                
+                if (count($path)) {
+                
+                    list($processor) = array_keys($path);
+
+                    $action = $this->executeProcessor(
+                            $processor,
+                            isset($path[$processor]['data'])
+                                ? $path[$processor]['data']
+                                : array()
+                    );
+
+                    $action = $action[0];
+
+                    $this->getLogger()->log('Got '.$processor.'Processor return action: '.$action);
+
+                    if (isset($path[$processor][$action])) {
+                        $this->executePath($path[$processor][$action]);
+                    }
+                } else {
+                    $this->getLogger()->log('Finished executing path');
+                }
     		
-    		$action = $action[0];
-    		
-    		$this->getLogger()->log('Got '.$processor.'Processor return action: '.$action);
-    		
-    		if (isset($path[$processor][$action])) {
-    		    $this->executePath($path[$processor][$action]);
-    		}
-    		
-    	    } else {
+    	    } elseif(is_string($path)) {
         		$jumpPath = $this->getConfig()->get('execution.'.$path);
         		$this->getLogger()->log('Jumping to path: '.$path);
                 

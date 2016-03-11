@@ -72,7 +72,7 @@
             
             $this->extends[]=$config;
 
-            $startDir = getcwd().'/../config/devel/';
+            $startDir = getcwd().'/../config/current/';
 
             if (file_exists($startDir.$config))
             {

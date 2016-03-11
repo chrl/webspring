@@ -103,6 +103,9 @@
         		}
     	    }
             
+            
+            var_dump($data,$result);
+            
 
     	    $core->getLogger()->log('Saving '.$handler.' output data to cache using '.$this->config['handler']);
             $this->storage->setExpireTime($this->config['activeHandlers'][$handler]);

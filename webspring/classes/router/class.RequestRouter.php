@@ -38,6 +38,10 @@
             		    $this->core->getLogger()->log('Param "'.$param.'" value ('.var_export($request->get($param),true).') matches required pattern ('.var_export($value,true).'), continuing...');
     			    continue;
     			}
+                        
+                        
+                        
+                        
     		    }
     		    
     		    $this->core->getLogger()->log('Param "'.$param.'" value ('.var_export($request->get($param),true).') doesn\'t match required ('.var_export($value,true).'), path check failed');
