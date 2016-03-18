@@ -1,5 +1,7 @@
 WebSpring – easy configurable service action framework
 
+[![Build Status](https://travis-ci.org/chrl/webspring.svg?branch=master)](https://travis-ci.org/chrl/webspring)
+
 Usage cases: 
   * SMS-services: 
     *	Weather
