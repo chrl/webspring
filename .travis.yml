@@ -2,5 +2,5 @@ language: php
 php:
   - "5.5"
   - "5.4"
-  script:
+script:
   - php codecept run  # self tests
