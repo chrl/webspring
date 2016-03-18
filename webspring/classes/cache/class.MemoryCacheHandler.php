@@ -15,7 +15,7 @@
             
             $this->transport->set($key,'BlaBla',3600);
 //            $value = $this->transport->get($key);
-            var_dump($value); var_dump($this->transport->getResultMessage());
+            
             
             return $value;
         }

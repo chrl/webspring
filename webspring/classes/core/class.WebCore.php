@@ -184,10 +184,11 @@
                             }
                             //unset($data['input']);
                             $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));                                            
+                            unset($data['input']);
                         }
                         
         		$this->getLogger()->log('Executing processor: '.$handler);
-        
+                        
         		$handle = $handler.'Processor';	    
         		$processor = new $handle();
         		$result = $processor->run($data,$this);
