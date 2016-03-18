@@ -2,5 +2,7 @@ language: php
 php:
   - "5.5"
   - "5.4"
-script:
-  - php codecept run  # self tests
+install:
+    - composer self-update
+    - composer install
+script: php vendor/codeception/codeception/codecept run
