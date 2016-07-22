@@ -21,9 +21,14 @@
     	 * @return void
     	 */
     	public function outro(CoreInterface $core) {
-    	    if ($result = $core->getRequest()->get('result')) {
+			$result = $core->getRequest()->get('result');
+    	    if (false!== $result) {
         		$core->getLogger()->log('Jsonify "result"...');
         		echo json_encode($result);
     	    }
+
+			if (false!== $core->getRequest()->get('template')) {
+				$core->getModule('TemplateOutput')->outro($core);
+			}
     	}
     }

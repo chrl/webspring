@@ -9,7 +9,7 @@
      * @version 2011
      * @access public
      */
-    abstract class BaseModule implements ModuleInterface
+    abstract class BaseModule extends Linkable implements ModuleInterface, LinkableInterface
     {
 	
 	public $config = array();

@@ -37,8 +37,8 @@
                         ? $logs[$calledClass]
                         : $logs['default'];
             
-            $message = '['.date('d.m.Y H:i:s').'] '.$calledClass.': '.$message."\r\n";        
-    
+            $message = '['.$this->sid.']['.date('d.m.Y H:i:s').'] '.$calledClass.': '.$message."\r\n";
+
             $f = fopen($logDir.$log,"a");
             fputs($f,$message);
             fclose($f);

@@ -1,11 +1,7 @@
 <?php
     /**
      * DatasourceManagerModule
-     * 
-     * @package   
-     * @author 
-     * @copyright admin
-     * @version 2011
+     *
      * @access public
      */
     class DatasourceManagerModule extends BaseModule implements ModuleInterface
@@ -17,7 +13,7 @@
          * DatasourceManagerModule::intro()
          * 
          * @param mixed $core
-         * @return
+         * @return $this
          */
         public function intro(CoreInterface $core) {
             $datasources = 
@@ -49,7 +45,12 @@
                         ? $this->datasources[$datasourceName]
                         : false;
         }
-        
+
+        /**
+         * @param $entity
+         * @return $this|bool|mixed
+         * @throws Exception
+         */
         public function getEntityDatasource($entity)
         {
             
@@ -60,14 +61,13 @@
             } else {
                 throw new Exception('Datasource mapping not defined for entity '.$entity);
             }
-            return $this;
         }
         
         /**
          * DatasourceManagerModule::setDatasources()
          * 
          * @param mixed $datasources
-         * @return
+         * @return void
          */
         protected function setDatasources(array $datasources) {
             $this->datasources = $datasources;
@@ -77,7 +77,7 @@
          * DatasourceManagerModule::outro()
          * 
          * @param mixed $core
-         * @return
+         * @return void
          */
         public function outro(CoreInterface $core) {
             $core->getLogger()->log('Shutting down connections');

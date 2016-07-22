@@ -26,19 +26,11 @@
             
             if ($result) {
                 $res = unserialize($result);
-                if (isset($res['time']) && isset($res['data'])) {
-                   
-                    if (time()- $res['time'] > $this->expireTime) {
-                         $this->core->getLogger()->log('Cache expired, cleaning');
-                         $this->transport->del($key.'.cache');
-                    } else {
-                        return $res['data'];
-                    }
-                    
-                } else {
-                    $this->core->getLogger()->log('Cache record invalid: '.$result); 
-                    return false;
-                }
+
+                return $res['data'];
+
+            } else {
+                $this->core->getLogger()->log('Got no cache: '.var_export($result,true));
             }
             
             return false;
@@ -49,7 +41,7 @@
             
             
             
-            $this->transport->set($key.'.cache',  serialize(array('data'=>$value,'time'=>time())));
+            $this->transport->setex($key.'.cache', $this->expireTime,  serialize(array('data'=>$value,'time'=>time())));
             
             return $this;            
         }

@@ -123,5 +123,51 @@
             }
             return $array;
         }
-        
+
+
+        public function getWithUpdate($params,$updateArray)
+        {
+            $res = $this->
+                core->
+                getModule('DatasourceManager')->
+                getEntityDatasource($this->type)->
+                getByParams(new $this->type($this->core),$params);
+
+            if (isset($res['id'])) {
+                $res = array($res);
+            }
+
+
+            $this->
+                core->
+                getModule('DatasourceManager')->
+                getEntityDatasource($this->type)->
+                updateByParams(new $this->type($this->core),$params,$updateArray);
+
+
+            if ($res) foreach ($res as $map) {
+                $this->objects[] = new $this->type($this->core,$map);
+            }
+
+            return $this;
+        }
+
+        public function updateByIds($objects,$updateArray)
+        {
+            $ids = array();
+
+            foreach ($objects as $item) {
+                $ids[] = $item['id'];
+            }
+
+            $this->
+            core->
+            getModule('DatasourceManager')->
+            getEntityDatasource($this->type)->
+            updateByIds(new $this->type($this->core),$ids,$updateArray);
+
+            return $this;
+        }
+
+
     }

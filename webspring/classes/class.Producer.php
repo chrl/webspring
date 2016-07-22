@@ -1,14 +1,8 @@
 <?php
 
-    class Producer
+    class Producer extends Linkable implements LinkableInterface
     {
-        protected $core;
-        
-        public function __construct(CoreInterface $core) {
-            $this->core = $core;
-            return $this;
-        }
-        
+
         public function getCore()
         {
             return $this->core;

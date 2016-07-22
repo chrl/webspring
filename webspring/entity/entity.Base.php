@@ -62,15 +62,44 @@
             
             return $result;
         }
-        
+
+        public function getLast($params)
+        {
+            $datasource = $this->
+            core->
+            getModule('DatasourceManager')->
+            getEntityDatasource(get_class($this));
+
+            $result = $datasource->getLast($this,$params);
+
+            return $result;
+        }
+
+        public function getFirst($params)
+        {
+            $datasource = $this->
+            core->
+            getModule('DatasourceManager')->
+            getEntityDatasource(get_class($this));
+
+            $result = $datasource->getFirst($this,$params);
+
+            return $result;
+        }
+
         public function save()
         {
-             
+            $datasource = $this->
+                            core->
+                            getModule('DatasourceManager')->
+                            getEntityDatasource(get_class($this));
+
             if ($this->getId()!==false) {
                 $datasource->update($this);
             } else {
                 $datasource->insert($this);
             }
+            return $this;
         }
 
     }

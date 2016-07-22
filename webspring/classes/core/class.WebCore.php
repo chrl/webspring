@@ -8,10 +8,6 @@
      * @see CoreInterface
      * 
      * @package WebSpring
-     * @author charlie@chrl.ru
-     * @copyright charlie@chrl.ru
-     * @version 2011
-     * @todo fix spaces->tabs
      * @access public
      */
     class WebCore implements CoreInterface
@@ -24,41 +20,74 @@
     	
     	protected $logger = null;
         protected $debugLevel = null;
+		protected $injector = null;
+
+        protected $sid = '';
         
         public $isAjax = null;
         
         public function __construct()
         {
             $this->isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
+            $this->sid = substr(md5(rand(1,100000).microtime(true)), 0, 8);
         }
-    	
+
+		public function __get($name) {
+			return $this->injector->getClass($name);
+		}
+
+		public function setInjector(InjectorInterface $injector)
+		{
+			$this->injector = $injector;
+			$this->injector->linkCore($this);
+			return $this;
+		}
+
+		public function getInjector()
+		{
+			return $this->injector;
+		}
+
+
     	/**
     	 * WebCore::process()
     	 * Main core process
          * 
     	 * @return CoreInterface $this
     	 */
-            
+
+		public function initialize() {
+
+            $this->setRequest(new WebRequest());
+
+            $this->getLogger()->setSid($this->sid)->setLevel(
+                ! is_null($this->debugLevel)
+                    ? $this->debugLevel
+                    : $this->
+                getConfig()->
+                get('settings.debug')
+            );
+
+            $this->getLogger()->log('Started processing request');
+
+            $path = $this->Router->resolveProcessingPath();
+
+            $this->getLogger()->log('Resolved processing path: '.$path);
+            $this->getRequest()->set('path',$path);
+
+		}
+
     	public function process()
     	{
-    	    $this->setRequest(new WebRequest());
-    	    
-    	    $this->getLogger()->setLevel(
-                                                ! is_null($this->debugLevel)
-                                                ? $this->debugLevel 
-                                                : $this->
-                                                         getConfig()->
-                                                         get('settings.debug')
-                                    );
-                
-    	    $this->getLogger()->log('Started processing request');
-    	    
-    	    $path = $this->router->resolveProcessingPath();
-                
-    	    $this->getLogger()->log('Resolved processing path: '.$path);
-            
-            $this->getRequest()->set('path',$path);
-    	    
+
+            $request = $this->getRequest();
+
+            if (!$request) {
+                $this->initialize();
+            }
+            $path = $this->getRequest()->get('path');
+
+
     	    $path = $this->getConfig()->get('execution.'.$path);
             
                 if (isset($path['set'])) {
@@ -67,7 +96,7 @@
                     foreach ($path['set'] as $key=>$value)
                     {
                         $this->getRequest()->set($key,$value);
-                        $this->getLogger()->log('Setting param "'.$key.'" to '.$value);
+                        $this->getLogger()->log('Setting param "'.$key.'" to '.var_export($value,true));
                     }    
                 }
             
@@ -115,10 +144,10 @@
 	
     	/**
     	 * WebCore::shutdown()
-             * Gracefully shuts down all modules
-             * During shutdown in Module::outro() method you can i.e. close connections
-             * to databases or output resulting messages or close files.
-             * Shutdown method calls modules in order of their appearance in config.
+		 * Gracefully shuts down all modules
+		 * During shutdown in Module::outro() method you can i.e. close connections
+		 * to databases or output resulting messages or close files.
+		 * Shutdown method calls modules in order of their appearance in config.
     	 * 
     	 * @return CoreInterface $this
     	 */
@@ -135,15 +164,15 @@
     	
     	/**
     	 * WebCore::executeProcessor()
-             * Execute processor and return execution result.
-             * Method calls all "preexecute" methods of attached modules before
-             * execution, and calls "postexecute" after it's execution.
-             * 
-             * Module can forbid execution of processor if sends "skip" as one of
-             * it's result actions.
-             * 
-             * @see BaseModule::intro()
-             *  
+		 * Execute processor and return execution result.
+		 * Method calls all "preexecute" methods of attached modules before
+		 * execution, and calls "postexecute" after it's execution.
+		 * 
+		 * Module can forbid execution of processor if sends "skip" as one of
+		 * it's result actions.
+		 * 
+		 * @see BaseModule::intro()
+		 *  
     	 * @param string $handler Name of the handler to execute
     	 * @param mixed $data Data to pass to handler, set in config
     	 * @return Array Result of processor execution
@@ -177,16 +206,17 @@
     	    
     	    if (!$skip) {
         	        
-                        if (isset($data['input'])) {
-                            $this->getLogger()->log('Filling input params for processor: '.$handler);
-                            foreach ($data['input'] as $k=>$v) {
-                                $data[$k] = $this->getRequest()->get($k);
-                            }
-                            //unset($data['input']);
-                            $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));                                            
-                            unset($data['input']);
-                        }
-                        
+                if (isset($data['input'])) {
+                    $this->getLogger()->log('Filling input params for processor: '.$handler);
+                    foreach ($data['input'] as $k=>$v) {
+                        $data[$v] = $this->getRequest()->get($v);
+                    }
+                    //unset($data['input']);
+                    $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));
+                    //unset($data['input']);
+                    //unset($data['output']);
+                }
+
         		$this->getLogger()->log('Executing processor: '.$handler);
                         
         		$handle = $handler.'Processor';	    
@@ -274,7 +304,7 @@
 	/**
 	 * WebCore::setRequest()
 	 * Request setter method
-         * 
+     *
 	 * @param RequestInterface $request
 	 * @return CoreInterface $this
 	 */
@@ -325,10 +355,10 @@
 	
 	/**
 	 * WebCore::getLogger()
-         * Logger getter
-         * 
-         * Simple lazy initialize method - initializes logger if not
-         * inited already.
+     * Logger getter
+     *
+     * Simple lazy initialize method - initializes logger if not
+     * inited already.
 	 * 
 	 * @return LoggerInterface
 	 */
@@ -345,7 +375,7 @@
 	
 	/**
 	 * WebCore::getRequest()
-         * Request getter
+     * Request getter
 	 * 
 	 * @return RequestInterface
 	 */
@@ -356,7 +386,7 @@
 	
 	/**
 	 * WebCore::getConfig()
-         * Config getter
+     * Config getter
 	 * 
 	 * @return ConfigInterface
 	 */
@@ -364,15 +394,39 @@
 	{
 	    return $this->config;
 	}
+
+
+	/**
+	 *
+	 * @param type $name
+	 * @param type $arguments
+	 * @return type
+	 */
+	public function __call($name, $arguments) {
+		if(substr($name,0,3)=='get') {
+			$name = substr($name,3);
+			//$this->getLogger()->log('Lazy getting component '.$name);
+
+			$class = $this->injector->getClass($name);
+
+			if (($class instanceof FillableInterface) && count($arguments)) {
+				$class->setProperties($arguments);
+			}
+
+			return $class;
+
+		}
+		return $this;
+	}
 	
 	/**
 	 * WebCore::attach()
-         * 
-         * Attach module to core process
-         * 
-         * Simple singleton implementation - one module doesn't attaches twice.
-         * Calls module intro() function when attached.
-         * Modules are attached in order of their appearence in program.
+     *
+     * Attach module to core process
+     *
+     * Simple singleton implementation - one module doesn't attaches twice.
+     * Calls module intro() function when attached.
+     * Modules are attached in order of their appearence in program.
 	 * 
 	 * @param string $module Name of the module to attach
 	 * @return CoreInterface $this
@@ -394,18 +448,18 @@
         
 	/**
 	 * WebCore::attachModuleToHandler()
-         * 
-         * Attaches post-execute and pre-execute methods of module to handler.
-         * Methods are executed when processor is being prepared to execution and
-         * right after processor's execution.
-         * 
-         * @see ModuleInterface::postexecute()
-         * @see ModuleInterface::preexecute()
+     *
+     * Attaches post-execute and pre-execute methods of module to handler.
+     * Methods are executed when processor is being prepared to execution and
+     * right after processor's execution.
+     *
+     * @see ModuleInterface::postexecute()
+     * @see ModuleInterface::preexecute()
 	 * 
 	 * @param mixed $handlerName Handler name
 	 * @param mixed $moduleName Module Name
 	 * @param ModuleInterface $module Module object to attach. Name given in
-         * order to give ability to override modules.
+     * order to give ability to override modules.
 	 * @return CoreInterface $this
 	 */
 	public function attachModuleToHandler($handlerName,$moduleName,  ModuleInterface $module)
@@ -417,8 +471,8 @@
 	/**
 	 * WebCore::getModules()
 	 * 
-         * Gets list of attached modules
-         * 
+     * Gets list of attached modules
+     *
 	 * @return array $modules
 	 */
 	protected function getModules()
@@ -428,10 +482,10 @@
 	
 	/**
 	 * WebCore::getModule()
-         * 
-         * Gets attached module by it's name
-	 * 
-         * @access public
+     *
+     * Gets attached module by it's name
+     *
+     * @access public
 	 * @param string $moduleName Name of wished module
 	 * @return ModuleInterface $module
 	 */

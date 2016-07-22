@@ -22,8 +22,8 @@
         {
             $this->linkCore($options['core']);
             $this->getCore()->getLogger()->log('Connecting to datasource '.$options['user'].'@'.$options['host']);
-            $this->connection = mysql_connect($options['host'],$options['user'],$options['pass']);
-            $database = mysql_select_db($options['database'], $this->connection);
+            $this->connection = mysqli_connect($options['host'],$options['user'],$options['pass']);
+            $database = mysqli_select_db($this->connection, $options['database']);
             
             if (!isset($options['encoding'])) $options['encoding'] = 'utf8';
             $this->query("SET NAMES ".$options['encoding']);
@@ -38,22 +38,21 @@
         public function query($sql)
         {
             $this->getCore()->getLogger()->log('Running query: '.$sql);
-            $res = mysql_query($sql,$this->connection);
+            $res = mysqli_query($this->connection, $sql);
             
-            if (mysql_error($this->connection)) {
-                $this->getCore()->getLogger()->log('Query led to error: '.  mysql_error($this->connection));
+            if (mysqli_error($this->connection)) {
+                $this->getCore()->getLogger()->log('Query led to error: '.  mysqli_error($this->connection));
             }
-            
+
             $result = array();
 
-            if($res && !is_bool ($res) && (mysql_num_rows($res)>0))
-            {
-                while (false !== $row = mysql_fetch_assoc($res)) {
-                    $result[$row['id']] = $row;
-                }
-                    
-            } else return false;
-            
+            if (is_bool($res)) return $res;
+
+
+            while ($row = mysqli_fetch_assoc($res)) {
+                $result[$row['id']] = $row;
+            }
+
             return $result;
         }
         
@@ -65,7 +64,7 @@
         public function shutdown() 
         {
             $this->query('ROLLBACK;');
-            mysql_close($this->connection);
+            mysqli_close($this->connection);
             $this->getCore()->getLogger()->log('Shut down connection to '.$this->name.' datasource');
         }
         
@@ -78,12 +77,12 @@
             $properties = array();
             foreach ($props as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysql_real_escape_string($item,$this->connection)).'"';
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
             }
             
             $sql.= implode(',', $properties);
             $this->query($sql);
-            $entity->setId(mysql_insert_id($this->connection));
+            $entity->setId(mysqli_insert_id($this->connection));
             
             return $this;
         }
@@ -96,7 +95,7 @@
 
             foreach ($props as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysql_real_escape_string($item,$this->connection)).'"';
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
             }
             
             $sql.= implode(',', $properties)." where id = ".$entity->getId();
@@ -113,7 +112,11 @@
 
             foreach ($params as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysql_real_escape_string($item,$this->connection).'"');
+                if ($item[0]=='%') {
+                    $properties[] = $key.' LIKE '.'"'.mysqli_real_escape_string($this->connection,$item).'"';
+                } else
+
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
             }
             
             $sql.= implode(' AND ', $properties);
@@ -122,6 +125,78 @@
             if ($result && (count($result)==1)) return array_shift($result);
             
             return $result;   
+
+        }
+
+        public function getLast(EntityInterface &$entity,$params)
+        {
+            $sql = "select * from `".$entity->getTable()."` where ";
+
+            $properties = array();
+
+            foreach ($params as $key=>$item)
+            {
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
+            }
+
+            $sql.= implode(' AND ', $properties);
+            $sql.=' order by id desc limit 1';
+            $result = $this->query($sql);
+
+            if ($result && (count($result)==1)) return array_shift($result);
+
+            return $result;
+
+        }
+
+        public function getFirst(EntityInterface &$entity,$params)
+        {
+            $sql = "select * from `".$entity->getTable()."` where ";
+
+            $properties = array();
+
+            foreach ($params as $key=>$item)
+            {
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
+            }
+
+            $sql.= implode(' AND ', $properties);
+            $sql.=' limit 1';
+            $result = $this->query($sql);
+
+            if ($result && (count($result)==1)) return array_shift($result);
+
+            return $result;
+
+        }
+
+        public function updateByParams(EntityInterface &$entity,$params,$updateArray)
+        {
+
+            $properties = array();
+            $set = "SET ";
+            foreach ($updateArray as $key=>$item)
+            {
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_escape_string($this->connection,$item).'"');
+            }
+
+            $set.= implode(', ', $properties);
+
+            $sql = "UPDATE `".$entity->getTable()."` ".$set." WHERE ";
+
+            $properties = array();
+            if (count($params)>0) {
+                foreach ($params as $key=>$item)
+                {
+                    $properties[] = $key.' = '.(is_int($item) ? $item : '\''.mysqli_escape_string($this->connection,$item).'\'');
+                }
+
+                $sql.= implode(' AND ', $properties);
+            } else $sql.= '1=1';
+
+            $this->query($sql);
+
+            return true;
 
         }
         

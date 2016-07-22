@@ -15,10 +15,12 @@
     	public function resolveProcessingPath()
     	{
     	    $request = $this->core->getRequest();
+
+            $this->core->getLogger()->log('request: '.var_export($request,true));
     	    
     	    
     	    foreach ($this->core->getConfig()->get('execution') as $pathName=>$path) {
-    		$this->core->getLogger()->log('Checking path: '.$pathName);
+    		$this->core->getLogger()->log('Checking path2: '.$pathName);
     		$suits = true;
     		
     		if (isset($path['condition']['request'])) foreach ($path['condition']['request'] as $param=>$value) {
@@ -49,9 +51,30 @@
     		    $suits = false;
     		    break;
     
-    		} else {
-    		    $suits = false;
     		}
+
+			if (isset($path['condition']['uri'])) {
+
+                $this->core->getLogger()->log('Got uri: '.$_SERVER['REQUEST_URI']);
+                $uri = $_SERVER['REQUEST_URI'];
+
+
+                if (preg_match($path['condition']['uri'],$uri,$matches)) {
+					$this->core->getLogger()->log('Match found in path '.$pathName);
+					foreach($matches as $key=>$match) {
+
+						if (isset($path['condition']['match'][$key])) {
+							$this->core->getLogger()->log('Setting param "'.$path['condition']['match'][$key].'" to '.$match);
+							$this->core->getRequest()->set($path['condition']['match'][$key],$match);
+						}
+					}
+
+				} else {
+					$suits = false;
+					$this->core->getLogger()->log($pathName.' mismatched by pattern ('.$path['condition']['uri'].') with uri '.$uri);
+				}
+
+			}
     		
     		
     		if ($suits) return $pathName;
