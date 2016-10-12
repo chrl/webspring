@@ -46,7 +46,9 @@
     		}
     		
     		
-    		if ($suits) return $pathName;
+    		if ($suits) {
+    		    return $pathName;
+    		}
     		
     	    }
     	    

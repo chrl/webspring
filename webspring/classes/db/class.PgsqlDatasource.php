@@ -24,7 +24,9 @@
             $this->getCore()->getLogger()->log('Connecting to datasource '.$options['user'].'@'.$options['host']);
             $this->connection = pg_connect('host='.$options['host'].' port=5432 dbname='.$options['database'].' user='.$options['user'].' password='.$options['pass']);
             
-            if (!isset($options['encoding'])) $options['encoding'] = 'utf8';
+            if (!isset($options['encoding'])) {
+                $options['encoding'] = 'utf8';
+            }
             
             pg_set_client_encoding($this->connection,"UNICODE");
         }
@@ -52,7 +54,9 @@
                     $result[$row['id']] = $row;
                 }
                     
-            } else return false;
+            } else {
+                return false;
+            }
             
             return $result;
         }
@@ -117,10 +121,14 @@
                 }
                 
                 $sql.= implode(' AND ', $properties);
-            } else $sql.= '1=1';
+            } else {
+                $sql.= '1=1';
+            }
             $result = $this->query($sql);
             
-            if ($result && (count($result)==1)) return array_shift($result);
+            if ($result && (count($result)==1)) {
+                return array_shift($result);
+            }
             
             return $result;   
 

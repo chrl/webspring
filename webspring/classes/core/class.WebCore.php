@@ -127,7 +127,9 @@
         	    $this->executePath($path['tree']);                
 
                 
-            } else $this->getLogger()->log('Include path not found in config');
+            } else {
+                $this->getLogger()->log('Include path not found in config');
+            }
             return $this;
         }
         
@@ -179,16 +181,20 @@
     	 */
     	protected function executeProcessor($handler,$data)
     	{
-    	    if (!$handler) return array('no-processor');
+    	    if (!$handler) {
+    	        return array('no-processor');
+    	    }
             
             $this->getLogger()->log('Locating processor: '.$handler);
             $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));
     	    $actions = array();
     	    
-    	    if(isset($this->attachedModules[$handler])) foreach($this->attachedModules[$handler] as $moduleName=>$module)
+    	    if(isset($this->attachedModules[$handler])) {
+    	        foreach($this->attachedModules[$handler] as $moduleName=>$module)
     	    {
         		if(method_exists($module,'preexecute')) {
         		    $actions[$moduleName] = $module->preexecute($handler,$data,$this);
+    	    }
         		}
     	    }
     	    
@@ -230,10 +236,12 @@
         		    $this->getRequest()->batchSet($result[1]);
         		}              	    
                 
-        		if(isset($this->attachedModules[$handler])) foreach($this->attachedModules[$handler] as $moduleName=>$module)
+        		if(isset($this->attachedModules[$handler])) {
+        		    foreach($this->attachedModules[$handler] as $moduleName=>$module)
         		{
         		    if(method_exists($module,'postexecute')) {
-        			     $module->postexecute($handler,$data,$result,$this);			
+        			     $module->postexecute($handler,$data,$result,$this);
+        		}
         		    }
         		}
     	    } elseif (count($result)>1) {
@@ -367,7 +375,9 @@
 	    if (!$this->logger) {
                 
                 $engine = $this->getConfig()->get('settings.logengine');
-                if (!$engine) $engine = 'ScreenLogger';
+                if (!$engine) {
+                    $engine = 'ScreenLogger';
+                }
                 $this->setLogger(new $engine($this));
             }
 	    return $this->logger;

@@ -22,7 +22,9 @@
          */
         public function log($message,$calledClass = 'default')
         {
-            if (!$this->log) return $this;
+            if (!$this->log) {
+                return $this;
+            }
             
             $logs = $this->core->getConfig()->get('settings.logs');
             $logDir = $this->core->getConfig()->get('settings.logdir');
@@ -31,7 +33,9 @@
             preg_match('/([^\.^\/]+)\.php$/',$bt[0]['file'],$matches);
             $calledClass = $matches[1];
     
-            if ($calledClass == 'FileLogger') $calledClass = $matches[2];
+            if ($calledClass == 'FileLogger') {
+                $calledClass = $matches[2];
+            }
             
             $log = isset($logs[$calledClass])
                         ? $logs[$calledClass]

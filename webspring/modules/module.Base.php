@@ -23,7 +23,9 @@
 	 */
 	public function intro(CoreInterface $core)
 	{
-	    if (!isset($this->config['activeHandlers']) || !is_array($this->config['activeHandlers'])) return $this;
+	    if (!isset($this->config['activeHandlers']) || !is_array($this->config['activeHandlers'])) {
+	        return $this;
+	    }
 	    $core->getLogger()->log('Attaching module '.$this->name.' to handlers: '.implode(', ',array_keys($this->config['activeHandlers'])));
 	    foreach ($this->config['activeHandlers'] as $handler=>$options) {
 		$core->attachModuleToHandler($handler,$this->name,$this);

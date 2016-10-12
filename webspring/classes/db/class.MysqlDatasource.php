@@ -25,7 +25,9 @@
             $this->connection = mysqli_connect($options['host'],$options['user'],$options['pass']);
             $database = mysqli_select_db($this->connection, $options['database']);
             
-            if (!isset($options['encoding'])) $options['encoding'] = 'utf8';
+            if (!isset($options['encoding'])) {
+                $options['encoding'] = 'utf8';
+            }
             $this->query("SET NAMES ".$options['encoding']);
         }
         
@@ -46,7 +48,9 @@
 
             $result = array();
 
-            if (is_bool($res)) return $res;
+            if (is_bool($res)) {
+                return $res;
+            }
 
 
             while ($row = mysqli_fetch_assoc($res)) {
@@ -114,15 +118,18 @@
             {
                 if ($item[0]=='%') {
                     $properties[] = $key.' LIKE '.'"'.mysqli_real_escape_string($this->connection,$item).'"';
-                } else
-
+                } else {
+                
                 $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
+                }
             }
             
             $sql.= implode(' AND ', $properties);
             $result = $this->query($sql);
             
-            if ($result && (count($result)==1)) return array_shift($result);
+            if ($result && (count($result)==1)) {
+                return array_shift($result);
+            }
             
             return $result;   
 
@@ -143,7 +150,9 @@
             $sql.=' order by id desc limit 1';
             $result = $this->query($sql);
 
-            if ($result && (count($result)==1)) return array_shift($result);
+            if ($result && (count($result)==1)) {
+                return array_shift($result);
+            }
 
             return $result;
 
@@ -164,7 +173,9 @@
             $sql.=' limit 1';
             $result = $this->query($sql);
 
-            if ($result && (count($result)==1)) return array_shift($result);
+            if ($result && (count($result)==1)) {
+                return array_shift($result);
+            }
 
             return $result;
 
@@ -192,7 +203,9 @@
                 }
 
                 $sql.= implode(' AND ', $properties);
-            } else $sql.= '1=1';
+            } else {
+                $sql.= '1=1';
+            }
 
             $this->query($sql);
 

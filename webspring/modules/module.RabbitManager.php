@@ -87,7 +87,7 @@ class RabbitManagerModule extends BaseModule implements ModuleInterface{
                     $cnt = $this->queues[$name]->declareQueue();
                 }
                 $this->queues[$name]->bind($ex_name, $routing_key);
-            }else{
+            } else{
                 $cnt = 1;
             }
         }

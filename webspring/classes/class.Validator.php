@@ -11,7 +11,9 @@
         
         public function check($data)
         {
-            if ($this->form['onCheck']) return $this->form['onCheck']($this->core,$data);
+            if ($this->form['onCheck']) {
+                return $this->form['onCheck']($this->core,$data);
+            }
             return true;
         }
         
