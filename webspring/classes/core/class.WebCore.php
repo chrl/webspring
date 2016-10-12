@@ -12,15 +12,15 @@
      */
     class WebCore implements CoreInterface
     {
-    	protected $config = array();
-    	protected $request = null;
+        protected $config = array();
+        protected $request = null;
     	
-    	protected $modules = array();
-    	protected $attachedModules = array();
+        protected $modules = array();
+        protected $attachedModules = array();
     	
-    	protected $logger = null;
+        protected $logger = null;
         protected $debugLevel = null;
-		protected $injector = null;
+        protected $injector = null;
 
         protected $sid = '';
         
@@ -29,39 +29,39 @@
         public function __construct()
         {
             $this->isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
-            $this->sid = substr(md5(rand(1,100000).microtime(true)), 0, 8);
+            $this->sid = substr(md5(rand(1, 100000).microtime(true)), 0, 8);
         }
 
-		public function __get($name) {
-			return $this->injector->getClass($name);
-		}
+        public function __get($name) {
+            return $this->injector->getClass($name);
+        }
 
-		public function setInjector(InjectorInterface $injector)
-		{
-			$this->injector = $injector;
-			$this->injector->linkCore($this);
-			return $this;
-		}
+        public function setInjector(InjectorInterface $injector)
+        {
+            $this->injector = $injector;
+            $this->injector->linkCore($this);
+            return $this;
+        }
 
-		public function getInjector()
-		{
-			return $this->injector;
-		}
+        public function getInjector()
+        {
+            return $this->injector;
+        }
 
 
-    	/**
-    	 * WebCore::process()
-    	 * Main core process
+        /**
+         * WebCore::process()
+         * Main core process
          * 
-    	 * @return CoreInterface $this
-    	 */
+         * @return CoreInterface $this
+         */
 
-		public function initialize() {
+        public function initialize() {
 
             $this->setRequest(new WebRequest());
 
             $this->getLogger()->setSid($this->sid)->setLevel(
-                ! is_null($this->debugLevel)
+                !is_null($this->debugLevel)
                     ? $this->debugLevel
                     : $this->
                 getConfig()->
@@ -73,12 +73,12 @@
             $path = $this->Router->resolveProcessingPath();
 
             $this->getLogger()->log('Resolved processing path: '.$path);
-            $this->getRequest()->set('path',$path);
+            $this->getRequest()->set('path', $path);
 
-		}
+        }
 
-    	public function process()
-    	{
+        public function process()
+        {
 
             $request = $this->getRequest();
 
@@ -88,29 +88,29 @@
             $path = $this->getRequest()->get('path');
 
 
-    	    $path = $this->getConfig()->get('execution.'.$path);
+            $path = $this->getConfig()->get('execution.'.$path);
             
                 if (isset($path['set'])) {
                     $this->getLogger()->log('Filling path params');
                     
                     foreach ($path['set'] as $key=>$value)
                     {
-                        $this->getRequest()->set($key,$value);
-                        $this->getLogger()->log('Setting param "'.$key.'" to '.var_export($value,true));
+                        $this->getRequest()->set($key, $value);
+                        $this->getLogger()->log('Setting param "'.$key.'" to '.var_export($value, true));
                     }    
                 }
             
     	    
-    	    $this->getLogger()->log('Executing path');
+            $this->getLogger()->log('Executing path');
     	    
-    	    $this->executePath($path['tree']);
+            $this->executePath($path['tree']);
     	    
             return $this;
-    	}
+        }
         
         public function executeIncludePath($path)
         {
-   	        $this->getLogger()->log('Executing include path "'.$path.'"');
+                $this->getLogger()->log('Executing include path "'.$path.'"');
             $path = $this->getConfig()->get('include.'.$path);
             if ($path) {
                 
@@ -119,12 +119,12 @@
                     
                     foreach ($path['set'] as $key=>$value)
                     {
-                        $this->getRequest()->set($key,$value);
+                        $this->getRequest()->set($key, $value);
                         $this->getLogger()->log('Setting param "'.$key.'" to '.$value);
                     }    
                 }
                 
-        	    $this->executePath($path['tree']);                
+                $this->executePath($path['tree']);                
 
                 
             } else {
@@ -144,73 +144,73 @@
             return $this->debugLevel;
         }
 	
-    	/**
-    	 * WebCore::shutdown()
-		 * Gracefully shuts down all modules
-		 * During shutdown in Module::outro() method you can i.e. close connections
-		 * to databases or output resulting messages or close files.
-		 * Shutdown method calls modules in order of their appearance in config.
-    	 * 
-    	 * @return CoreInterface $this
-    	 */
-    	public function shutdown()
-    	{
-    	    $this->getLogger()->log('Gracefully shutting down - calling all outro methods');
+        /**
+         * WebCore::shutdown()
+         * Gracefully shuts down all modules
+         * During shutdown in Module::outro() method you can i.e. close connections
+         * to databases or output resulting messages or close files.
+         * Shutdown method calls modules in order of their appearance in config.
+         * 
+         * @return CoreInterface $this
+         */
+        public function shutdown()
+        {
+            $this->getLogger()->log('Gracefully shutting down - calling all outro methods');
     	    
-    	    foreach( $this->getModules() as $moduleName=>$module)
-    	    {
-    		$module->outro($this);
-    	    }
+            foreach( $this->getModules() as $moduleName=>$module)
+            {
+            $module->outro($this);
+            }
                 return $this;
-    	}
+        }
     	
-    	/**
-    	 * WebCore::executeProcessor()
-		 * Execute processor and return execution result.
-		 * Method calls all "preexecute" methods of attached modules before
-		 * execution, and calls "postexecute" after it's execution.
-		 * 
-		 * Module can forbid execution of processor if sends "skip" as one of
-		 * it's result actions.
-		 * 
-		 * @see BaseModule::intro()
-		 *  
-    	 * @param string $handler Name of the handler to execute
-    	 * @param mixed $data Data to pass to handler, set in config
-    	 * @return Array Result of processor execution
-    	 */
-    	protected function executeProcessor($handler,$data)
-    	{
-    	    if (!$handler) {
-    	        return array('no-processor');
-    	    }
+        /**
+         * WebCore::executeProcessor()
+         * Execute processor and return execution result.
+         * Method calls all "preexecute" methods of attached modules before
+         * execution, and calls "postexecute" after it's execution.
+         * 
+         * Module can forbid execution of processor if sends "skip" as one of
+         * it's result actions.
+         * 
+         * @see BaseModule::intro()
+         *  
+         * @param string $handler Name of the handler to execute
+         * @param mixed $data Data to pass to handler, set in config
+         * @return Array Result of processor execution
+         */
+        protected function executeProcessor($handler,$data)
+        {
+            if (!$handler) {
+                return array('no-processor');
+            }
             
             $this->getLogger()->log('Locating processor: '.$handler);
             $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));
-    	    $actions = array();
+            $actions = array();
     	    
-    	    if(isset($this->attachedModules[$handler])) {
-    	        foreach($this->attachedModules[$handler] as $moduleName=>$module)
-    	    {
-        		if(method_exists($module,'preexecute')) {
-        		    $actions[$moduleName] = $module->preexecute($handler,$data,$this);
-    	    }
-        		}
-    	    }
+            if(isset($this->attachedModules[$handler])) {
+                foreach($this->attachedModules[$handler] as $moduleName=>$module)
+            {
+                if(method_exists($module,'preexecute')) {
+                    $actions[$moduleName] = $module->preexecute($handler,$data,$this);
+            }
+                }
+            }
     	    
-    	    $skip = false;
-    	    $result = false;
+            $skip = false;
+            $result = false;
     	    
-    	    foreach ($actions as $moduleActions) {
+            foreach ($actions as $moduleActions) {
     
-        		if (array_key_exists('skip',$moduleActions)) {
-        		    $result = $moduleActions['skip'];
-        		    $skip = true;
-        		    break;
-        		}
-    	    }
+                if (array_key_exists('skip',$moduleActions)) {
+                    $result = $moduleActions['skip'];
+                    $skip = true;
+                    break;
+                }
+            }
     	    
-    	    if (!$skip) {
+            if (!$skip) {
         	        
                 if (isset($data['input'])) {
                     $this->getLogger()->log('Filling input params for processor: '.$handler);
@@ -218,54 +218,54 @@
                         $data[$v] = $this->getRequest()->get($v);
                     }
                     //unset($data['input']);
-                    $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data,true));
+                    $this->getLogger()->log('Got '.$handler.'Processor data: '.var_export($data, true));
                     //unset($data['input']);
                     //unset($data['output']);
                 }
 
-        		$this->getLogger()->log('Executing processor: '.$handler);
+                $this->getLogger()->log('Executing processor: '.$handler);
                         
-        		$handle = $handler.'Processor';	    
-        		$processor = new $handle();
-        		$result = $processor->run($data,$this);
+                $handle = $handler.'Processor';	    
+                $processor = new $handle();
+                $result = $processor->run($data,$this);
         		
-        		$this->getLogger()->log('Got execution result: '.var_export($result,true));
+                $this->getLogger()->log('Got execution result: '.var_export($result,true));
     
-        		if (count($result)>1) {
-        		    $this->getLogger()->log('Batch-setting data: '.var_export($result[1],true));
-        		    $this->getRequest()->batchSet($result[1]);
-        		}              	    
+                if (count($result)>1) {
+                    $this->getLogger()->log('Batch-setting data: '.var_export($result[1],true));
+                    $this->getRequest()->batchSet($result[1]);
+                }              	    
                 
-        		if(isset($this->attachedModules[$handler])) {
-        		    foreach($this->attachedModules[$handler] as $moduleName=>$module)
-        		{
-        		    if(method_exists($module,'postexecute')) {
-        			     $module->postexecute($handler,$data,$result,$this);
-        		}
-        		    }
-        		}
-    	    } elseif (count($result)>1) {
-    		    $this->getLogger()->log('Batch-setting data: '.var_export($result[1],true));
-    		    $this->getRequest()->batchSet($result[1]);
-       		}              	    
+                if(isset($this->attachedModules[$handler])) {
+                    foreach($this->attachedModules[$handler] as $moduleName=>$module)
+                {
+                    if(method_exists($module,'postexecute')) {
+                            $module->postexecute($handler,$data,$result,$this);
+                }
+                    }
+                }
+            } elseif (count($result)>1) {
+                $this->getLogger()->log('Batch-setting data: '.var_export($result[1],true));
+                $this->getRequest()->batchSet($result[1]);
+                }              	    
     	    
-    	    return $result;
-    	}
+            return $result;
+        }
 	
-    	/**
-    	 * WebCore::executePath()
+        /**
+         * WebCore::executePath()
          * 
          * Method traverses the tree of execution and executes processors
          * in order of appearence in the tree. Method can jump to another path
          * if it is defined as string. Method recursion helps to traverse
          * all the tree, parsing path as execution continues.
-    	 * 
-    	 * @param array $path Execution path
-    	 * @return CoreInterface $this
-    	 */
-    	protected function executePath($path)
-    	{
-    	    if (is_array($path)) {
+         * 
+         * @param array $path Execution path
+         * @return CoreInterface $this
+         */
+        protected function executePath($path)
+        {
+            if (is_array($path)) {
                 
                 if (count($path)) {
                 
@@ -289,90 +289,90 @@
                     $this->getLogger()->log('Finished executing path');
                 }
     		
-    	    } elseif(is_string($path)) {
-        		$jumpPath = $this->getConfig()->get('execution.'.$path);
-        		$this->getLogger()->log('Jumping to path: '.$path);
+            } elseif(is_string($path)) {
+                $jumpPath = $this->getConfig()->get('execution.'.$path);
+                $this->getLogger()->log('Jumping to path: '.$path);
                 
                 if (isset($jumpPath['set'])) {
                     $this->getLogger()->log('Filling path params');
                     
                     foreach ($jumpPath['set'] as $key=>$value)
                     {
-                        $this->getRequest()->set($key,$value);
+                        $this->getRequest()->set($key, $value);
                         $this->getLogger()->log('Setting param "'.$key.'" to '.$value);
                     }    
                 }
 
-        		$this->executePath($jumpPath['tree']);
-    	    }
+                $this->executePath($jumpPath['tree']);
+            }
     	    
                 return $this;
-    	}
+        }
 	
-	/**
-	 * WebCore::setRequest()
-	 * Request setter method
+    /**
+     * WebCore::setRequest()
+     * Request setter method
      *
-	 * @param RequestInterface $request
-	 * @return CoreInterface $this
-	 */
-	protected function setRequest(RequestInterface $request)
-	{
-	    $this->request = $request;
-	    return $this;
-	}
+     * @param RequestInterface $request
+     * @return CoreInterface $this
+     */
+    protected function setRequest(RequestInterface $request)
+    {
+        $this->request = $request;
+        return $this;
+    }
 	
-	/**
-	 * WebCore::setConfig()
+    /**
+     * WebCore::setConfig()
      * Config setter method
-	 * 
-	 * @param ConfigInterface $config
-	 * @return CoreInterface $this
-	 */
-	public function setConfig(ConfigInterface $config)
-	{
-	    $this->config = $config;
-	    return $this;
-	}
+     * 
+     * @param ConfigInterface $config
+     * @return CoreInterface $this
+     */
+    public function setConfig(ConfigInterface $config)
+    {
+        $this->config = $config;
+        return $this;
+    }
     
-	/**
-	 * WebCore::setRouter()
+    /**
+     * WebCore::setRouter()
      * Router setter method
-	 * 
-	 * @param RouterInterface $router
-	 * @return CoreInterface $this
-	 */
-	public function setRouter(RouterInterface $router)
-	{
-	    $this->router = $router->linkCore($this);
-	    return $this;
-	}    
+     * 
+     * @param RouterInterface $router
+     * @return CoreInterface $this
+     */
+    public function setRouter(RouterInterface $router)
+    {
+        $this->router = $router->linkCore($this);
+        return $this;
+    }    
 	
-	/**
-	 * WebCore::setLogger()
+    /**
+     * WebCore::setLogger()
      * Logger setter method
-	 * 
-	 * @param LoggerInterface $logger
-	 * @return CoreInterface $this
-	 */
-	public function setLogger(LoggerInterface $logger)
-	{
-	    $this->logger = $logger;
-	    return $this;
-	}
+     * 
+     * @param LoggerInterface $logger
+     * @return CoreInterface $this
+     */
+    public function setLogger(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+        return $this;
+    }
 	
-	/**
-	 * WebCore::getLogger()
+    /**
+     * WebCore::getLogger()
      * Logger getter
      *
      * Simple lazy initialize method - initializes logger if not
      * inited already.
-	 * 
-	 * @return LoggerInterface
-	 */
-	public function getLogger()
-	{
-	    if (!$this->logger) {
+     * 
+     * @return LoggerInterface
+     */
+    public function getLogger()
+    {
+        if (!$this->logger) {
                 
                 $engine = $this->getConfig()->get('settings.logengine');
                 if (!$engine) {
@@ -380,84 +380,84 @@
                 }
                 $this->setLogger(new $engine($this));
             }
-	    return $this->logger;
-	}
+        return $this->logger;
+    }
 	
-	/**
-	 * WebCore::getRequest()
+    /**
+     * WebCore::getRequest()
      * Request getter
-	 * 
-	 * @return RequestInterface
-	 */
-	public function getRequest()
-	{
-	    return $this->request;
-	}
+     * 
+     * @return RequestInterface
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
 	
-	/**
-	 * WebCore::getConfig()
+    /**
+     * WebCore::getConfig()
      * Config getter
-	 * 
-	 * @return ConfigInterface
-	 */
-	public function getConfig()
-	{
-	    return $this->config;
-	}
+     * 
+     * @return ConfigInterface
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
 
 
-	/**
-	 *
-	 * @param type $name
-	 * @param type $arguments
-	 * @return type
-	 */
-	public function __call($name, $arguments) {
-		if(substr($name,0,3)=='get') {
-			$name = substr($name,3);
-			//$this->getLogger()->log('Lazy getting component '.$name);
+    /**
+     *
+     * @param type $name
+     * @param type $arguments
+     * @return type
+     */
+    public function __call($name, $arguments) {
+        if(substr($name,0,3)=='get') {
+            $name = substr($name,3);
+            //$this->getLogger()->log('Lazy getting component '.$name);
 
-			$class = $this->injector->getClass($name);
+            $class = $this->injector->getClass($name);
 
-			if (($class instanceof FillableInterface) && count($arguments)) {
-				$class->setProperties($arguments);
-			}
+            if (($class instanceof FillableInterface) && count($arguments)) {
+                $class->setProperties($arguments);
+            }
 
-			return $class;
+            return $class;
 
-		}
-		return $this;
-	}
+        }
+        return $this;
+    }
 	
-	/**
-	 * WebCore::attach()
+    /**
+     * WebCore::attach()
      *
      * Attach module to core process
      *
      * Simple singleton implementation - one module doesn't attaches twice.
      * Calls module intro() function when attached.
      * Modules are attached in order of their appearence in program.
-	 * 
-	 * @param string $module Name of the module to attach
-	 * @return CoreInterface $this
-	 */
-	public function attach($module)
-	{
-	    $this->getLogger()->log('Attaching module '.$module.'...');
+     * 
+     * @param string $module Name of the module to attach
+     * @return CoreInterface $this
+     */
+    public function attach($module)
+    {
+        $this->getLogger()->log('Attaching module '.$module.'...');
 	    
-	    if (!isset($this->modules[$module])) {
+        if (!isset($this->modules[$module])) {
                 
                 $mod = $module.'Module';
-		$mod = new $mod();
-		$mod->setModuleConfig(array($module=>$this->getConfig()->get('modules.'.$module)))->intro($this);
-		$this->modules[$module] = $mod;
-	    }
+        $mod = new $mod();
+        $mod->setModuleConfig(array($module=>$this->getConfig()->get('modules.'.$module)))->intro($this);
+        $this->modules[$module] = $mod;
+        }
 	    
-	    return $this;
-	}
+        return $this;
+    }
         
-	/**
-	 * WebCore::attachModuleToHandler()
+    /**
+     * WebCore::attachModuleToHandler()
      *
      * Attaches post-execute and pre-execute methods of module to handler.
      * Methods are executed when processor is being prepared to execution and
@@ -465,49 +465,49 @@
      *
      * @see ModuleInterface::postexecute()
      * @see ModuleInterface::preexecute()
-	 * 
-	 * @param mixed $handlerName Handler name
-	 * @param mixed $moduleName Module Name
-	 * @param ModuleInterface $module Module object to attach. Name given in
+     * 
+     * @param mixed $handlerName Handler name
+     * @param mixed $moduleName Module Name
+     * @param ModuleInterface $module Module object to attach. Name given in
      * order to give ability to override modules.
-	 * @return CoreInterface $this
-	 */
-	public function attachModuleToHandler($handlerName,$moduleName,  ModuleInterface $module)
-	{
-	    $this->attachedModules[$handlerName][$moduleName] = $module;
-	    return $this;
-	}
+     * @return CoreInterface $this
+     */
+    public function attachModuleToHandler($handlerName,$moduleName,  ModuleInterface $module)
+    {
+        $this->attachedModules[$handlerName][$moduleName] = $module;
+        return $this;
+    }
 	
-	/**
-	 * WebCore::getModules()
-	 * 
+    /**
+     * WebCore::getModules()
+     * 
      * Gets list of attached modules
      *
-	 * @return array $modules
-	 */
-	protected function getModules()
-	{
-	    return $this->modules;
-	}
+     * @return array $modules
+     */
+    protected function getModules()
+    {
+        return $this->modules;
+    }
 	
-	/**
-	 * WebCore::getModule()
+    /**
+     * WebCore::getModule()
      *
      * Gets attached module by it's name
      *
      * @access public
-	 * @param string $moduleName Name of wished module
-	 * @return ModuleInterface $module
-	 */
-	public function getModule($moduleName)
-	{
-	    if (!isset($this->modules[$moduleName])) {
-	       $this->getLogger()->log('Tried to get module '.$moduleName.', lazy loading');
-	       $this->attach($moduleName);
-	    }
+     * @param string $moduleName Name of wished module
+     * @return ModuleInterface $module
+     */
+    public function getModule($moduleName)
+    {
+        if (!isset($this->modules[$moduleName])) {
+            $this->getLogger()->log('Tried to get module '.$moduleName.', lazy loading');
+            $this->attach($moduleName);
+        }
         
             
         return $this->modules[$moduleName];
-	}
+    }
 	
 }

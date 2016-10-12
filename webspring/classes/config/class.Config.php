@@ -62,17 +62,17 @@
                 return $this;
         }
         
-        public function readConfig($config=false)
+        public function readConfig($config = false)
         {
             if ($config == false) {
                 $config = 'default.php';
             }
             
-            if (in_array($config,$this->extends)) {
+            if (in_array($config, $this->extends)) {
                 return array();
             }
             
-            $this->extends[]=$config;
+            $this->extends[] = $config;
 
             $startDir = getcwd().'/../config/current/';
 
@@ -84,7 +84,7 @@
                     foreach ($settings['links'] as $key=>$item) {
                         $set2 = $this->readConfig($item);
                         unset($settings['links'][$key]);
-                        $settings = array_merge($settings,$set2);
+                        $settings = array_merge($settings, $set2);
                     }
                 }
                 
@@ -105,8 +105,8 @@
          */
         public function get($key)
         {
-            if (false!==strpos($key,'.')) {
-                list($section,$value) = explode('.',$key);
+            if (false !== strpos($key, '.')) {
+                list($section, $value) = explode('.', $key);
                 if (isset($this->settings[$section][$value]))
                 {
                     return $this->settings[$section][$value];

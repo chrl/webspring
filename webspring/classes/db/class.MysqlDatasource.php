@@ -22,7 +22,7 @@
         {
             $this->linkCore($options['core']);
             $this->getCore()->getLogger()->log('Connecting to datasource '.$options['user'].'@'.$options['host']);
-            $this->connection = mysqli_connect($options['host'],$options['user'],$options['pass']);
+            $this->connection = mysqli_connect($options['host'], $options['user'], $options['pass']);
             $database = mysqli_select_db($this->connection, $options['database']);
             
             if (!isset($options['encoding'])) {
@@ -43,7 +43,7 @@
             $res = mysqli_query($this->connection, $sql);
             
             if (mysqli_error($this->connection)) {
-                $this->getCore()->getLogger()->log('Query led to error: '.  mysqli_error($this->connection));
+                $this->getCore()->getLogger()->log('Query led to error: '.mysqli_error($this->connection));
             }
 
             $result = array();
@@ -72,7 +72,7 @@
             $this->getCore()->getLogger()->log('Shut down connection to '.$this->name.' datasource');
         }
         
-        public function insert(EntityInterface &$entity)
+        public function insert(EntityInterface&$entity)
         {
             $sql = "insert into `".$entity->getTable()."` set ";
             
@@ -81,17 +81,17 @@
             $properties = array();
             foreach ($props as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection, $item).'"');
             }
             
-            $sql.= implode(',', $properties);
+            $sql .= implode(',', $properties);
             $this->query($sql);
             $entity->setId(mysqli_insert_id($this->connection));
             
             return $this;
         }
         
-        public function update(EntityInterface &$entity)
+        public function update(EntityInterface&$entity)
         {
             $sql = "update `".$entity->getTable()."` set ";
             $props = $entity->getProperties();
@@ -99,16 +99,16 @@
 
             foreach ($props as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection, $item).'"');
             }
             
-            $sql.= implode(',', $properties)." where id = ".$entity->getId();
+            $sql .= implode(',', $properties)." where id = ".$entity->getId();
             $this->query($sql);
 
             return $this;
         }
         
-        public function getByParams(EntityInterface &$entity,$params)
+        public function getByParams(EntityInterface&$entity, $params)
         {
             $sql = "select * from `".$entity->getTable()."` where ";
 
@@ -116,18 +116,18 @@
 
             foreach ($params as $key=>$item)
             {
-                if ($item[0]=='%') {
-                    $properties[] = $key.' LIKE '.'"'.mysqli_real_escape_string($this->connection,$item).'"';
+                if ($item[0] == '%') {
+                    $properties[] = $key.' LIKE '.'"'.mysqli_real_escape_string($this->connection, $item).'"';
                 } else {
                 
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection, $item).'"');
                 }
             }
             
-            $sql.= implode(' AND ', $properties);
+            $sql .= implode(' AND ', $properties);
             $result = $this->query($sql);
             
-            if ($result && (count($result)==1)) {
+            if ($result && (count($result) == 1)) {
                 return array_shift($result);
             }
             
@@ -135,7 +135,7 @@
 
         }
 
-        public function getLast(EntityInterface &$entity,$params)
+        public function getLast(EntityInterface&$entity, $params)
         {
             $sql = "select * from `".$entity->getTable()."` where ";
 
@@ -143,14 +143,14 @@
 
             foreach ($params as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection, $item).'"');
             }
 
-            $sql.= implode(' AND ', $properties);
-            $sql.=' order by id desc limit 1';
+            $sql .= implode(' AND ', $properties);
+            $sql .= ' order by id desc limit 1';
             $result = $this->query($sql);
 
-            if ($result && (count($result)==1)) {
+            if ($result && (count($result) == 1)) {
                 return array_shift($result);
             }
 
@@ -158,7 +158,7 @@
 
         }
 
-        public function getFirst(EntityInterface &$entity,$params)
+        public function getFirst(EntityInterface&$entity, $params)
         {
             $sql = "select * from `".$entity->getTable()."` where ";
 
@@ -166,14 +166,14 @@
 
             foreach ($params as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection,$item).'"');
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_real_escape_string($this->connection, $item).'"');
             }
 
-            $sql.= implode(' AND ', $properties);
-            $sql.=' limit 1';
+            $sql .= implode(' AND ', $properties);
+            $sql .= ' limit 1';
             $result = $this->query($sql);
 
-            if ($result && (count($result)==1)) {
+            if ($result && (count($result) == 1)) {
                 return array_shift($result);
             }
 
@@ -181,30 +181,30 @@
 
         }
 
-        public function updateByParams(EntityInterface &$entity,$params,$updateArray)
+        public function updateByParams(EntityInterface&$entity, $params, $updateArray)
         {
 
             $properties = array();
             $set = "SET ";
             foreach ($updateArray as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_escape_string($this->connection,$item).'"');
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.mysqli_escape_string($this->connection, $item).'"');
             }
 
-            $set.= implode(', ', $properties);
+            $set .= implode(', ', $properties);
 
             $sql = "UPDATE `".$entity->getTable()."` ".$set." WHERE ";
 
             $properties = array();
-            if (count($params)>0) {
+            if (count($params) > 0) {
                 foreach ($params as $key=>$item)
                 {
-                    $properties[] = $key.' = '.(is_int($item) ? $item : '\''.mysqli_escape_string($this->connection,$item).'\'');
+                    $properties[] = $key.' = '.(is_int($item) ? $item : '\''.mysqli_escape_string($this->connection, $item).'\'');
                 }
 
-                $sql.= implode(' AND ', $properties);
+                $sql .= implode(' AND ', $properties);
             } else {
-                $sql.= '1=1';
+                $sql .= '1=1';
             }
 
             $this->query($sql);

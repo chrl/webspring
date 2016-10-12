@@ -28,7 +28,7 @@
                 $options['encoding'] = 'utf8';
             }
             
-            pg_set_client_encoding($this->connection,"UNICODE");
+            pg_set_client_encoding($this->connection, "UNICODE");
         }
         
         /**
@@ -40,15 +40,15 @@
         public function query($sql)
         {
             $this->getCore()->getLogger()->log('Running query: '.$sql);
-            $res =@pg_query($this->connection,$sql);
+            $res = @pg_query($this->connection, $sql);
             
             if (pg_last_error($this->connection)) {
-                $this->getCore()->getLogger()->log('!!! Query led to error: '.  pg_last_error($this->connection));
+                $this->getCore()->getLogger()->log('!!! Query led to error: '.pg_last_error($this->connection));
             }
             
             $result = array();
 
-            if($res && !is_bool ($res) && (pg_num_rows($res)>0))
+            if ($res && !is_bool($res) && (pg_num_rows($res) > 0))
             {
                 while (false !== $row = pg_fetch_assoc($res)) {
                     $result[$row['id']] = $row;
@@ -73,7 +73,7 @@
             $this->getCore()->getLogger()->log('Shut down connection to '.$this->name.' datasource');
         }
         
-        public function insert(EntityInterface &$entity)
+        public function insert(EntityInterface&$entity)
         {
             $sql = "insert into `".$entity->getTable()."` set ";
             
@@ -82,17 +82,17 @@
             $properties = array();
             foreach ($props as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.pg_escape_string($this->connection,$item)).'"';
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.pg_escape_string($this->connection, $item)).'"';
             }
             
-            $sql.= implode(',', $properties);
+            $sql .= implode(',', $properties);
             $this->query($sql);
             $entity->setId(false);
             
             return $this;
         }
         
-        public function update(EntityInterface &$entity)
+        public function update(EntityInterface&$entity)
         {
             $sql = "update `".$entity->getTable()."` set ";
             $props = $entity->getProperties();
@@ -100,33 +100,33 @@
 
             foreach ($props as $key=>$item)
             {
-                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.pg_escape_string($this->connection,$item)).'"';
+                $properties[] = $key.' = '.(is_numeric($item) ? $item : '"'.pg_escape_string($this->connection, $item)).'"';
             }
             
-            $sql.= implode(',', $properties)." where id = ".$entity->getId();
+            $sql .= implode(',', $properties)." where id = ".$entity->getId();
             $this->query($sql);
 
             return $this;
         }
         
-        public function getByParams(EntityInterface &$entity,$params)
+        public function getByParams(EntityInterface&$entity, $params)
         {
             $sql = "select * from \"".$entity->getTable()."\" where ";
 
             $properties = array();
-            if (count($params)>0) {
+            if (count($params) > 0) {
                 foreach ($params as $key=>$item)
                 {
-                    $properties[] = $key.' = '.(is_int($item) ? $item : '\''.pg_escape_string($this->connection,$item).'\'');
+                    $properties[] = $key.' = '.(is_int($item) ? $item : '\''.pg_escape_string($this->connection, $item).'\'');
                 }
                 
-                $sql.= implode(' AND ', $properties);
+                $sql .= implode(' AND ', $properties);
             } else {
-                $sql.= '1=1';
+                $sql .= '1=1';
             }
             $result = $this->query($sql);
             
-            if ($result && (count($result)==1)) {
+            if ($result && (count($result) == 1)) {
                 return array_shift($result);
             }
             
