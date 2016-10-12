@@ -68,7 +68,9 @@
                 $config = 'default.php';
             }
             
-            if (in_array($config,$this->extends)) return array();
+            if (in_array($config,$this->extends)) {
+                return array();
+            }
             
             $this->extends[]=$config;
 

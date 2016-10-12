@@ -14,7 +14,9 @@
 
     	public function intro(CoreInterface $core)
         {
-    	    if (!isset($this->config['activeHandlers']) || !is_array($this->config['activeHandlers'])) return $this;
+    	    if (!isset($this->config['activeHandlers']) || !is_array($this->config['activeHandlers'])) {
+    	        return $this;
+    	    }
     	    
             $core->getLogger()->log('Attaching module '.$this->name.' to handlers: '.implode(', ',array_keys($this->config['activeHandlers'])));
     	    foreach ($this->config['activeHandlers'] as $handler=>$options) {
@@ -54,7 +56,9 @@
     
     	    $params = array();
     	    
-    	    if (isset($data['input'])) foreach ($data['input'] as $param) $params[$param] = $core->getRequest()->get($param);
+    	    if (isset($data['input'])) {
+    	        foreach ($data['input'] as $param) $params[$param] = $core->getRequest()->get($param);
+    	    }
     	    
     	    $key = $this->getKey($handler,$params);
             
@@ -89,13 +93,17 @@
     	    
     	    $params = array();
     	    
-    	    if (isset($data['input'])) foreach ($data['input'] as $param) $params[$param] = $core->getRequest()->get($param);
+    	    if (isset($data['input'])) {
+    	        foreach ($data['input'] as $param) $params[$param] = $core->getRequest()->get($param);
+    	    }
     	    
     	    $key = $this->getKey($handler,$params);
             
     	    if (isset($data['output'])) {
     		
-                if (!isset($result[1])) $result[1]=array();
+                if (!isset($result[1])) {
+                    $result[1]=array();
+                }
         		foreach ($data['output'] as $param)
         		{
         		    $p = $core->getRequest()->get($param);

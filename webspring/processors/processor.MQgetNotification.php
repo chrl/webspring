@@ -23,13 +23,17 @@ class MQgetNotificationProcessor extends BaseProcessor implements ProcessorInter
 
         if (isset($redis)) {
             $nextNotification = json_decode($redis->lpop('notification_queue'),true);
-        } else  $nextNotification = $notificationQueue->get();
+        } else {
+            $nextNotification = $notificationQueue->get();
+        }
 
         if (!empty($nextNotification)) {
 
             $core->getLogger()->log('Got next notification from queue: '.var_export($nextNotification,true));
             // confirm the message
-            if (!isset($redis)) $notificationQueue->ack();
+            if (!isset($redis)) {
+                $notificationQueue->ack();
+            }
 
             return array('ok', array('notification' => $nextNotification));
         } else {

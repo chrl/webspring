@@ -29,8 +29,9 @@
         
         private function preloadtemplate($tpl)
         {
-     		if (!file_exists($this->core->getConfig()->get('settings.templatedir'). $tpl.'.tpl'))
-            die('<b>Fatal:</b> SubTemplate doesn\'t exist: '.$tpl);
+     		if (!file_exists($this->core->getConfig()->get('settings.templatedir'). $tpl.'.tpl')) {
+     		            die('<b>Fatal:</b> SubTemplate doesn\'t exist: '.$tpl);
+     		}
             
             $this->core->getLogger()->log('Fetching subtemplate: '.$tpl.'.tpl');
             
@@ -40,8 +41,9 @@
     	private function fetchtemplate()
     	{
      		
-            if (!file_exists($this->core->getConfig()->get('settings.templatedir') . $this->core->getRequest()->get('template')))
-            throw new Exception('Template doesn\'t exist: '.$this->core->getRequest()->get('template'));
+            if (!file_exists($this->core->getConfig()->get('settings.templatedir') . $this->core->getRequest()->get('template'))) {
+                        throw new Exception('Template doesn\'t exist: '.$this->core->getRequest()->get('template'));
+            }
             
     		$this->template = file_get_contents($this->core->getConfig()->get('settings.templatedir') . $this->core->getRequest()->get('template'));
             
@@ -96,7 +98,9 @@
                         $this->template = str_replace('%'.$key.'.'.$param.'%',$paramValue,$this->template);
                     }
                     
-                } else $this->template = str_replace('%'.$key.'%',$value,$this->template);
+                } else {
+                    $this->template = str_replace('%'.$key.'%',$value,$this->template);
+                }
             }
             return $this;
         }

@@ -47,7 +47,7 @@ class RabbitQueue extends Linkable implements QueueInterface, LinkableInterface 
     public function __call($name, $arguments){
         if (method_exists($this->client, $name)){
             call_user_func_array(array($this->client, $name), $arguments);
-        }else{
+        } else{
             throw new Exception("Unknown method $name");
         }
     }

@@ -21,12 +21,14 @@
     		$this->core->getLogger()->log('Checking path: '.$pathName);
     		$suits = true;
     		
-    		if (isset($path['condition']['request'])) foreach ($path['condition']['request'] as $param=>$value) {
+    		if (isset($path['condition']['request'])) {
+    		    foreach ($path['condition']['request'] as $param=>$value) {
     
     		    if ($request->get($param)) {
     			
 					if ($value == false) {
 							$this->core->getLogger()->log('Param "'.$param.'" value ('.var_export($request->get($param),true).') exists, continuing...');
+    		}
 						continue;
 					}
 					if ($value == $request->get($param)) {
@@ -49,7 +51,9 @@
     		}
     		
     		
-    		if ($suits) return $pathName;
+    		if ($suits) {
+    		    return $pathName;
+    		}
     		
     	    }
     	    

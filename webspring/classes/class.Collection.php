@@ -65,7 +65,9 @@
         {
             foreach ($this->objects as $item)
             {
-                if ($item->$key == $value) return $item;
+                if ($item->$key == $value) {
+                    return $item;
+                }
             }
             
             return false;
@@ -103,8 +105,10 @@
                         getEntityDatasource($this->type)->
                         getByParams(new $this->type($this->core),$params);
             
-            if ($res) foreach ($res as $map) {
+            if ($res) {
+                foreach ($res as $map) {
                 $this->objects[] = new $this->type($this->core,$map);
+            }
             }
             
             return $this;
@@ -145,8 +149,10 @@
                 updateByParams(new $this->type($this->core),$params,$updateArray);
 
 
-            if ($res) foreach ($res as $map) {
+            if ($res) {
+                foreach ($res as $map) {
                 $this->objects[] = new $this->type($this->core,$map);
+            }
             }
 
             return $this;
